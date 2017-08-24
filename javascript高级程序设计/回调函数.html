@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body designMode=on>
+		
+		<div class="biaodan">
+			<form id="form1" action!="" method="post">
+				
+				<input type="image" name="" id="" value="图片" src="img/tu1.jpg" />
+				
+				<input type="text" id="text"  value="123" />
+				<input type="number" name="" min="0" max="20" step="5" required>
+				<input type="number" name="" min="0" max="20" pattern="[0-5]" required>
+				
+				<input id="chongzhi" type="reset" name="" id="" value="重置" />
+				<div designmode = "on" style="width:100px;height:100px;"></div>
+				<input type="submit" value=""/>
+			</form>
+		</div>
+	</body>
+</html>
+<script>
+
+
+	
+	function say(){
+		console.log("say it")
+	}
+	
+	function aaa(han){
+
+		
+		console.log("123")
+		han()
+	}
+	
+	var form1 = document.getElementById("form1")
+	console.log(form1.length)
+	document.getElementById("text").focus()
+	document.getElementById("text").setSelectionRange(0,2)
+	
+</script>

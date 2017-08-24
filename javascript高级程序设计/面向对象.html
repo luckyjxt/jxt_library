@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	
+//	var person = {
+//		name : "lumingfu",
+//		age  : 24
+//	}
+//	Object.defineProperty(person,"name",{
+//		value:"gudu"
+//	})
+//	console.log(person)
+
+
+	function Person(name,age,job){
+		this.name = name;
+		this.age  = age;
+		this.job  = job;
+		this.speak=function(){
+			alert(this.name)
+		}
+	}
+	var person1 = new Person("lili","20","teacher")
+	var person2 = new Person("haha","23","monkey")
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="modeName=640-12" name="grid" />
+		<title>支付订单</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/makegrid.js"></script>
+		<script src="js/zepto_1.1.3.js"></script>
+		<script src="js/zepto_fx.js"></script>
+		<script src="js/new_file.js"></script>
+
+	</head>
+	<body>
+		
+		<div class="auto">
+			<div class="zfdd_head">
+				<div class="grid">
+					<div class="col-2">
+						<div class="fanhui"><i class="icon iconfont icon-jiantou"></i> <span> 返回</span></div>
+					</div>
+					<div class="col-2">
+						<div class="title">确认订单</div>
+					</div>
+					<div class="col-3">
+						<div class="kongbai">
+							<h3> </h3>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="search">
+							<input type="" name="" id="" value="" />
+							<img src="images/search.png"/>
+						</div>
+					</div>
+					<div class="col-1">
+						<div class="saomiao"><img src="images/saomiao.png"/></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<input type="button" / value="点击" id="btn">
+		<input type="text" id="myTextbox" />
+		
+	</body>
+</html>
+
+<script>
+	//对象
+	function Person(name){
+		this.name = name
+	}
+	Person.prototype = {
+		speak : function(){
+			alert(this.name)
+		}
+	}
+	var me = new Person("lmf")
+	var he = new Person("tom")
+	
+	
+	
+	
+	//模拟点击事件
+	var btn = document.getElementById("btn");
+	var event = document.createEvent("MouseEvents")
+	event.initMouseEvent("click", true, true, document.defaultView, 0, 0, 0, 0, 0,false, false, false, false, 0, null);	
+	btn.onclick=function(){
+		console.log("123")
+	}	
+	btn.dispatchEvent(event)
+	
+
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实践题 - 选项卡</title>
+    <style type="text/css">
+     /* CSS样式制作 */  
+     *{padding: 0;margin: 0;}
+     ul,li{list-style: none;}
+     .nav{overflow: hidden;}
+     .nav li{cursor: pointer;position:relative;float: left; margin-right: 10px; border:1px solid darkcyan;background: white;}
+     .nav li.last::after{content: "";clear: both;}
+     .cont{display: inline-block;}
+     .nav li.cur{z-index:11;float: left; margin-right: 10px; border:1px solid darkcyan;border-bottom: none;border-top: 3px solid orangered;}
+     .cont div {position:relative;z-index:10;margin-top: -3px;border: 1px solid black; border-top: 3px solid orangered;display: none;}
+     .cont div.show{display: block;}
+     
+       
+    </style>
+    <script type="text/javascript">
+         
+    // JS实现选项卡切换
+    
+    	window.onload=function(){
+    		var li = document.getElementById("nav")
+    		var lis = li.getElementsByTagName("li")
+    		var cont = document.getElementById("cont")
+    		var conts = cont.getElementsByTagName("div")
+    		var i = 0;
+    		var j = 0
+    		conts[j].setAttribute("class","show")
+    		lis[j].setAttribute("class","cur")
+    		for(i = 0 ; i < lis.length ; i++){
+
+				lis[i].setAttribute("data",i)
+    			lis[i].onclick=function(){
+    				console.log(this.index)
+//  				cont.className == ""
+
+    				conts[j].removeAttribute("class","show")
+    				lis[j].removeAttribute("class","cur")
+				var index = this.getAttribute("data")
+//  				conts.setAttribute("class","")
+//  				conts[index].setAttributeNode("class")
+					lis[index].setAttribute("class","cur")
+    				conts[index].setAttribute("class","show")
+//  				cont.removeAttribute("class","show")
+//  				conts[i].setAttribute("class","show")
+					j = index
+    			}
+    		}
+    	}
+    </script>
+ 
+</head>
+<body>
+<!-- HTML页面布局 -->
+
+<div class="wrap">
+	<ul id="nav" class="nav">
+		<li>选项卡1</li>
+		<li>选项卡2</li>
+		<li class="last">选项卡3</li>
+	</ul>
+	<div id="cont" class="cont">
+		<div>
+			<ul>
+				<li>275万购昌平邻铁三居 总价20万买一居</li>
+				<li>275万购昌平邻铁三居 总价20万买一居</li>
+				<li>275万购昌平邻铁三居 总价20万买一居</li>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li>北京首现零首付楼盘 53万购东5环50平</li>
+				<li>北京首现零首付楼盘 53万购东5环50平</li>
+				<li>北京首现零首付楼盘 53万购东5环50平</li>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li>经典清新简欧爱家 90平老房焕发新生</li>
+				<li>经典清新简欧爱家 90平老房焕发新生</li>
+				<li>经典清新简欧爱家 90平老房焕发新生</li>
+			</ul>
+		</div>
+	</div>
+</div>
+ 
+</body>
+</html>

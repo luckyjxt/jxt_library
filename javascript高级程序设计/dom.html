@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>  
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>   
+  <script type="text/javascript"> 
+  
+      window.onload = function(){
+                  
+     // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+         addcolor()
+         
+         var addnode = document.getElementById("addnode")
+         addnode.onclick=function(){
+         	var xh = xuehao()
+         	var xm = xingming()
+//       	console.log(xm)
+         	addcode(xh,xm)
+         	deletemessage()
+ 			addcolor()
+         }
+         
+         
+//       var trtr = document.getElementsByTagName("tr")
+//       var scbut = trtr.getElementsByTagName("a")
+//					console.log(scbut)	
+	 
+	 }
+      
+      function addcolor(){
+      	 var tr = document.getElementsByTagName("tr")
+      	 console.log(tr)
+         var i = 0;
+         for(i = 0 ;i<tr.length;i++){
+         	
+		         tr[i].onmouseover=function(){
+		             this.style.backgroundColor="#F2F2F2"
+		         }
+		         tr[i].onmouseleave=function(){
+		             this.style.backgroundColor="#FFF"
+		         }
+	        		
+         }
+
+      }
+      
+      
+      function deletemessage(){
+      	var deletebut = document.getElementsByClassName("delete")
+     	var j = 0 ;
+     	for(j = 0; j < deletebut.length;j++){
+     		deletebut[j].onclick=function(){
+//   			console.log("！23")
+     			this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
+     		}
+     	}
+
+      }
+      
+     function xuehao(){
+     	var sj = parseInt(Math.random()*100)
+     	if(sj<10){
+     		sj = "00"+sj
+     	}else{
+     		sj = "0"+sj
+     		
+     	}
+     	var xuenum = "xh"+sj
+     	return xuenum
+     }
+     
+     function xingming(){
+     	//0x4E00 0x9FA5
+     	//charcodeat 中文十进制范围19968至40869
+//   
+			var xma = parseInt(Math.random()*40869)
+     	while(xma < 19968){
+     		var xma = parseInt(Math.random()*40869)
+     	}
+     	
+			var xmb = parseInt(Math.random()*40869)
+     	while(xmb < 19968){
+     		var xmb = parseInt(Math.random()*40869)
+     	}
+     	
+			var xmc = parseInt(Math.random()*40869)
+     	while(xmc < 19968){
+     		var xmc = parseInt(Math.random()*40869)
+     	}
+     	
+//   	console.log(xma+"/"+xmb+"/"+xmc)
+     	var xingming = String.fromCharCode(xma,xmb,xmc)
+     	return xingming
+     }
+      // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+     function addcode(xh,xm){
+
+			var tr1 = document.createElement("tr")
+			var td1 = document.createElement("td")
+			var td2 = document.createElement("td")
+			var td3 = document.createElement("td")
+			var txt1 = document.createTextNode(xh)
+			var txt2 = document.createTextNode(xm)
+			var a1 = document.createElement("a")
+			a1.setAttribute("class","delete")
+			a1.setAttribute("href","javascript:;")
+			var txt3 = document.createTextNode("删除")
+			a1.appendChild(txt3)
+			td3.appendChild(a1)
+			td1.appendChild(txt1)
+			td2.appendChild(txt2)
+			tr1.appendChild(td1)
+			tr1.appendChild(td2)
+			tr1.appendChild(td3)
+     	var table = document.getElementsByTagName("table")
+     	table[0].appendChild(tr1)
+     	
+     		addcolor()
+     }
+    		
+   	 
+     // 创建删除函数
+     
+
+
+  </script> 
+ </head> 
+ <body> 
+	   <table border="1" width="50%" id="table">
+	   <tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>操作</th>
+	   </tr>  
+
+	   <tr>
+		<td>xh001</td>
+		<td>王小明</td>
+		<td><a class="delete" href="javascript:;" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>
+
+	   <tr>
+		<td>xh002</td>
+		<td>刘小芳</td>
+		<td><a class="delete" href="javascript:;" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>  
+
+	   </table>
+	   <input id="addnode" type="button" value="添加一行"  />   <!--在添加按钮上添加点击事件  -->
+ </body>
+</html>
