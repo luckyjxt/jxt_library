@@ -13,13 +13,19 @@
 
 <script type="text/javascript">
     var xhr = createXHR()
-    console.log(xhr)
-    xhr.open("get","json/aihao.json",false)
-    console.log(xhr)
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4) {            
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                console.log(xhr)
+            } else {
+                alert("Request was unsuccessful: " + xhr.status);
+            }
+        }
+    }
     
+    xhr.open("get","json/aihao.json",true)
+    xhr.setRequestHeader("MyHeader","MyValue")
     xhr.send(null)
-    
-    console.log(xhr)
     
     function createXHR() {
     	if (typeof XMLHttpRequest != "undefined") {
