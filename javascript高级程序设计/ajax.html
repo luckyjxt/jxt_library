@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="wrap">
+        <h3 contenteditable>可编辑的区域</h3>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript">
+// xhr
     var xhr = createXHR()
     xhr.onreadystatechange = function(){
         if (xhr.readyState == 4) {            
@@ -49,4 +52,10 @@
     		throw new Error("No XHR object available.");
     	}
     }    
+    
+    
+    
+// xdr
+    var xdr =new XDomainRequest()
+    console.log(xdr);
 </script>
