@@ -500,7 +500,7 @@ a.compare-active{background-position:0 -92px;color:#333;cursor:pointer}
 .filter .f-price{position:relative;float:left;width:132px;height:25px;margin-right:12px}
 .filter .f-price .f-price-set{width:100%;height:100%;overflow:hidden}
 .filter .f-price .f-price-set .input-txt,.filter .f-price .f-price-set em{float:left;display:inline}
-.filter .f-price .f-price-set .input-txt{width:52px;border-color:#ccc;color:#333}
+.filter .f-price .f-price-set .input-txt{width:52px;border-color:#ccc;color:#666;background:#fff;}
 .filter .f-price .f-price-set .input-txt:focus{outline-color:transparent}
 .filter .f-price .f-price-set em{width:12px;line-height:23px;color:#333;text-align:center}
 .filter .f-price .f-price-edit{display:none;width:132px;height:25px;padding:37px 6px 6px;border:1px solid #999;position:absolute;background:#fff;box-shadow:1px 1px 2px rgba(0,0,0,.2)}

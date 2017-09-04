@@ -4,123 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>搜索</title>
-    <link rel="stylesheet" href="image/sousuo.css">
     <link rel="stylesheet" href="image/aa.css">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            // 全局
-            var pinpaiduoxuan = {"con":[]}
-            
-            // 重置
-            $("#J_selector .s-brand").find(".J_valueList li a").on("click",function(e){e.preventDefault()})
-        // 品牌筛选
-            // 点击更多收起
-            $("#J_selector").on("click",".sl-e-more",function(e){
-                $(this).addClass("opened").html("收起<i></i>").parent().parent().addClass("extend")
-                $("#J_selector .sl-b-letter").find("li").eq(0).addClass("curr").siblings().removeClass("curr")
-                
-            })
-            $("#J_selector").on("click",".sl-e-more.opened",function(e){
-                $(this).removeClass("opened").html("更多<i></i>").parent().parent().removeClass("extend").find(".J_valueList li").show().parent().scrollTop("0")
-            })
-            // 按字母筛选 .sl-b-letter
-            $("#J_selector .sl-b-letter").on("mouseover","li",function(e){
-                $(this).addClass("curr").siblings().removeClass("curr")
-                var sLetter = $(this).attr("data-initial")
-                var allLi = $(this).parent().parent().find(".J_valueList li")
-                if(sLetter == 0){
-                    $.each(allLi,function(i,con){$(con).show()})
-                }else{
-                    $.each(allLi,function(i,con){
-                        if($(con).attr("data-initial") == sLetter){
-                            $(con).show()
-                        }else{
-                            $(con).hide()
-                        }
-                    })
-                }
-            })
-            // 多选
-            $("#J_selector").on("click",".sl-e-multiple",function(e){
-                
-                $(this).parent().hide().parent().addClass("multiple").removeClass("extend")
-                
-                $(this).parent().parent().find(".J_valueList").on("click","li",jihuoduoxuan)
-                
-            })
-            //取消多选 .J_btnsCancel
-            $("#J_selector").on("click",".J_btnsCancel",function(e){
-                $(this).parent().parent().find(".J_valueList").off("click","li")
-                
-                $(this).parent().parent().parent().removeClass("multiple").find(".sl-ext").show()
-                        .find(".sl-e-more").removeClass("opened").html("更多<i></i>").parent().parent().removeClass("extend").find(".J_valueList li").show().removeClass("selected").parent().scrollTop("0")
-                $("#J_selector .sl-b-letter").find("li").eq(0).addClass("curr").siblings().removeClass("curr")
-                pinpaiduoxuan = {"con":[]}
-                $(this).parent().parent().parent().find(".J_brandSelected").hide().parent().find(".J_btnsConfirm").addClass("disabled")
-                $(this).parent().parent().parent().find(".brand-selected").html("")
-                
-                
-            })
-            
-            
-            
-            function jihuoduoxuan(e){
-                // console.log(pinpaiduoxuan)
-                if($(this).hasClass("selected")){
-                    $(this).removeClass("selected")
-                    
-                    var thatIndex = $(this).index()
-                    // console.log(thatIndex)
-                    
-                    for(var i = 0;i < pinpaiduoxuan.con.length;i++){
-                        if(pinpaiduoxuan.con[i].liIndex == thatIndex){
-                            pinpaiduoxuan.con.splice(i,1)
-                        }
-                    }
-                    // $.each(pinpaiduoxuan.con,function(i,c){
-                    //     // console.log(c)
-                    //     // console.log(pinpaiduoxuan.con[i].index)
-                    //     if(c.index && c.index == thatIndex){
-                    //         pinpaiduoxuan.con.splice(i,i+1)
-                    //     }
-                    // })
-                }else {
-                    var title = $(this).find("a").attr("title")
-                    var index = $(this).index()
-                    var message = {"title":title,"liIndex":index}
-                    // console.log(message)
-                    pinpaiduoxuan.con.push(message)
-
-                    $(this).addClass("selected")
-                }
-                
-                
-                
-                if(pinpaiduoxuan.con.length > 0 ){
-                    var str = ""
-                    
-                    for(var j = 0;j < pinpaiduoxuan.con.length ; j++){
-                        str +="<li class='selected'>"
-                        str +="<a href!='' title="+pinpaiduoxuan.con[j].title+">"
-                        str +="<i></i>"
-                        str +=pinpaiduoxuan.con[j].title
-                        str +="</a></li>"
-                    }
-                    
-                    $(this).parent().parent().parent().find(".J_brandSelected").show().parent().find(".J_btnsConfirm").removeClass("disabled")
-                    $(this).parent().parent().parent().find(".brand-selected").html(str)
-                }else{
-                    $(this).parent().parent().parent().find(".J_brandSelected").hide().parent().find(".J_btnsConfirm").addClass("disabled")
-                    $(this).parent().parent().parent().find(".brand-selected").html("")
-                    
-                }
-                
-                
-            }
-        })        
-    </script>
-    
+    <link rel="stylesheet" href="image/sousuo.css">
 </head>
 <body>
 <div class="auto">
@@ -159,153 +44,153 @@
                     <div class="sl-v-logos">
                         <ul class="J_valueList v-fixed">
                             <li data-initial="H">
-                                <a href="" title="华为（HUAWEI）"><i></i><img src="image/img_01.jpg" width="102" height="36">华为（HUAWEI）</a>
+                                <a href="#" title="华为（HUAWEI）"><i></i><img src="image/img_01.jpg" width="102" height="36">华为（HUAWEI）</a>
                             </li>
                             <li data-initial="X">
-                               <a href=""  title="小米（MI）"><i></i><img src="image/img_02.jpg" width="102" height="36">小米（MI）</a>
+                               <a href="#"  title="小米（MI）"><i></i><img src="image/img_02.jpg" width="102" height="36">小米（MI）</a>
                             </li>
                             <li data-initial="S">
-                                <a href=""  title="三星（SAMSUNG）"><i></i><img src="image/img_03.jpg" width="102" height="36">三星（SAMSUNG）</a>
+                                <a href="#"  title="三星（SAMSUNG）"><i></i><img src="image/img_03.jpg" width="102" height="36">三星（SAMSUNG）</a>
                             </li>
                             <li data-initial="M">
-                                <a href=""  title="魅族（MEIZU）">
+                                <a href="#"  title="魅族（MEIZU）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t3511/131/31887105/4943/48f83fa9/57fdf4b8N6e95624d.jpg" width="102" height="36">魅族（MEIZU）</a>
                             </li>
                             <li data-initial="Y" >
-                                <a href=""  title="一加">
+                                <a href="#"  title="一加">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2398/233/975959106/6263/a786f5b8/563b33ffN9c288c6c.jpg" width="102" height="36">一加</a>
                             </li>
                             <li data-initial="V" >
-                                <a href=""  title="vivo">
+                                <a href="#"  title="vivo">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2458/318/1092287831/5774/b7b4ff89/563b3484N9ba68e13.jpg" width="102" height="36">vivo</a>
                             </li>
                             <li data-initial="O" >
-                                <a href=""  title="OPPO">
+                                <a href="#"  title="OPPO">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2119/133/2264148064/4303/b8ab3755/56b2f385N8e4eb051.jpg" width="102" height="36">OPPO</a>
                             </li>
                             <li data-initial="S" >
-                                <a href=""  title="360">
+                                <a href="#"  title="360">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t5182/149/2437584670/15334/2e1ebf3/591aa1abN602ebecf.jpg" width="102" height="36">360</a>
                             </li>
                             <li data-initial="Z" >
-                                <a href="" title="中兴（ZTE）">
+                                <a href="#" title="中兴（ZTE）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2551/271/1317227522/3284/7419745e/56a855a3Ne38ee719.jpg" width="102" height="36">中兴（ZTE）</a>
                             </li>
                             <li data-initial="C" >
-                                <a href="" title="锤子（smartisan）">
+                                <a href="#" title="锤子（smartisan）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t1954/102/907711365/5487/9f26868f/5631ccdeNe8df5efb.jpg" width="102" height="36">锤子（smartisan）</a>
                             </li>
                             <li data-initial="N" >
-                                <a href=""  title="诺基亚（NOKIA）">
+                                <a href="#"  title="诺基亚（NOKIA）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2572/102/189476501/7717/16cc5814/563b33d4N6c59780c.jpg" width="102" height="36">诺基亚（NOKIA）</a>
                             </li>
                             <li data-initial="M" >
-                                <a href=""  title="美图（meitu）">
+                                <a href="#"  title="美图（meitu）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t3553/225/1930378991/5787/c2ebdd72/5836e479N88a98abb.jpg" width="102" height="36">美图（meitu）</a>
                             </li>
                             <li data-initial="H" >
-                                <a href=""  title="HTC">
+                                <a href="#"  title="HTC">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2560/279/23813773/3854/d4c5c191/5632c1dbN7a1def70.jpg" width="102" height="36">HTC</a>
                             </li>
                             <li data-initial="S" >
-                                <a href=""  title="索尼（SONY）">
+                                <a href="#"  title="索尼（SONY）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2704/26/3871123383/2969/4cb7c45f/579eb5dcN684f85fe.jpg" width="102" height="36">索尼（SONY）</a>
                             </li>
                             <li data-initial="N" >
-                                <a href=""  title="努比亚（nubia）">
+                                <a href="#"  title="努比亚（nubia）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2101/155/882410684/3730/b24b14db/5631cd12N7548352d.jpg" width="102" height="36">努比亚（nubia）</a>
                             </li>
                             <li data-initial="J" >
-                                <a href=""  title="金立（Gionee）">
+                                <a href="#"  title="金立（Gionee）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2413/204/2928322939/11997/1a757fce/56fc94e0Nc4581b2a.jpg" width="102" height="36">金立（Gionee）</a>
                             </li>
                             <li data-initial="R" >
-                                <a href=""  title="荣耀">
+                                <a href="#"  title="荣耀">
                                     <i></i>荣耀						</a>
                             </li>
                             <li data-initial="K" >
-                                <a href="" title="酷派（Coolpad）">
+                                <a href="#" title="酷派（Coolpad）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2521/347/883897149/3732/91c917ec/5670cf96Ncffa2ae6.jpg" width="102" height="36">酷派（Coolpad）</a>
                             </li>
                             <li data-initial="M" >
-                                <a href=""  title="摩托罗拉（Motorola）">
+                                <a href="#"  title="摩托罗拉（Motorola）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t661/253/1423421688/3172/97b24a13/54dab3ccNd4aec44d.jpg" width="102" height="36">摩托罗拉（Motorola）</a>
                             </li>
                             <li data-initial="A" >
-                                <a href=""  title="AGM">
+                                <a href="#"  title="AGM">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t7672/5/613320372/3853/5bcb2027/59956bc5Na0e765cd.png" width="102" height="36">AGM</a>
                             </li>
                             <li data-initial="L" >
-                                <a href=""  title="联想（Lenovo）">
+                                <a href="#"  title="联想（Lenovo）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t6799/74/1348425607/15774/bc286188/59804c98N1944175e.jpg" width="102" height="36">联想（Lenovo）</a>
                             </li>
                             <li data-initial="L" >
-                                <a href=""  title="乐视（Letv）">
+                                <a href="#"  title="乐视（Letv）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t3943/117/323950707/2803/98cf752c/58491fdeN44305f72.jpg" width="102" height="36">乐视（Letv）</a>
                             </li>
                             <li data-initial="X" >
-                                <a href=""  title="小辣椒">
+                                <a href="#"  title="小辣椒">
                                     <i></i><img src="//img20.360buyimg.com/popshop/g14/M00/09/10/rBEhV1K6uOwIAAAAAAAGxx0kTvQAAHWYwPIloIAAAbf434.png" width="102" height="36">小辣椒</a>
                             </li>
                             <li data-initial="B" >
-                                <a href="" title="8848">
+                                <a href="#" title="8848">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2362/322/1495525742/20891/9fb624a1/565d4719N819e2107.jpg" width="102" height="36">8848</a>
                             </li>
                             <li data-initial="H" >
-                                <a href=""  title="黑莓（BlackBerry）">
+                                <a href="#"  title="黑莓（BlackBerry）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2815/64/1277517721/2672/ece33803/57396d92N3e802994.png" width="102" height="36">黑莓（BlackBerry）</a>
                             </li>
                             <li data-initial="L" >
-                                <a href=""  title="乐视TV（Letv）">
+                                <a href="#"  title="乐视TV（Letv）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t3682/304/2306896695/2803/98cf752c/58491febN6694b0a8.jpg" width="102" height="36">乐视TV（Letv）</a>
                             </li>
                             <li data-initial="S" >
-                                <a href=""  title="夏普（SHARP）">
+                                <a href="#"  title="夏普（SHARP）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2458/315/2153417538/12751/2ff4e617/56b15fe9Naae1551d.jpg" width="102" height="36">夏普（SHARP）</a>
                             </li>
                             <li data-initial="Z" >
-                                <a href="" title="ZUK">
+                                <a href="#" title="ZUK">
                                     <i></i>ZUK						</a>
                             </li>
                             <li data-initial="H" >
-                                <a href=""  title="海信（Hisense）">
+                                <a href="#"  title="海信（Hisense）">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t2335/273/1452782667/12466/b57b94e1/56a82fc0N787b0b09.jpg" width="102" height="36">海信（Hisense）</a>
                             </li>
                             <li data-initial="L" >
-                                <a href=""  title="LG">
+                                <a href="#"  title="LG">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2830/42/1246856630/3519/736447b0/5739678aN679faf0d.jpg" width="102" height="36">LG</a>
                             </li>
                             <li data-initial="T" >
-                                <a href="" title="TCL">
+                                <a href="#" title="TCL">
                                     <i></i><img src="//img20.360buyimg.com/popshop/jfs/t2791/362/1651055795/24704/f9227f72/574501f3Nf9b2a78b.jpg" width="102" height="36">TCL</a>
                             </li>
                             <li data-initial="S" >
-                                <a href=""  title="三星">
+                                <a href="#"  title="三星">
                                     <i></i><img src="//img30.360buyimg.com/popshop/jfs/t6115/56/2275840153/39537/c55e90b1/593de89aN84f39ac6.jpg" width="102" height="36">三星</a>
                             </li>
                             <li data-initial="D" >
-                                <a href=""  title="朵唯（DOOV）">
+                                <a href="#"  title="朵唯（DOOV）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/g15/M07/1E/18/rBEhWlK6nq0IAAAAAAAHD9tXznQAAHN3gGNKYYAAAcn606.png" width="102" height="36">朵唯（DOOV）</a>
                             </li>
                             <li data-initial="S" >
-                                <a href="" title="SUGAR"><i></i><img src="//img30.360buyimg.com/popshop/g13/M02/0E/07/rBEhVFK6oSAIAAAAAAAGi1zM5QUAAHPiQP_5QYAAAaj650.png" width="102" height="36">SUGAR</a>
+                                <a href="#" title="SUGAR"><i></i><img src="//img30.360buyimg.com/popshop/g13/M02/0E/07/rBEhVFK6oSAIAAAAAAAGi1zM5QUAAHPiQP_5QYAAAaj650.png" width="102" height="36">SUGAR</a>
                             </li>
-                            <li data-initial="V" ><a href=""  title="VETAS"><i></i>VETAS</a></li>
+                            <li data-initial="V" ><a href="#"  title="VETAS"><i></i>VETAS</a></li>
                             <li data-initial="M" >
-                                <a href="" rel="nofollow" onclick="searchlog(1,0,35,71,'品牌::MANN')" title="MANN">
+                                <a href="#" rel="nofollow" onclick="searchlog(1,0,35,71,'品牌::MANN')" title="MANN">
                                     <i></i><img src="//img30.360buyimg.com/popshop/g14/M0A/09/0F/rBEhVVK6oIIIAAAAAAAIviNGda8AAHWDwND6f8AAAjW195.png" width="102" height="36">MANN						</a>
                             </li>
                             <li data-initial="G" >
-                                <a href="" rel="nofollow" onclick="searchlog(1,0,36,71,'品牌::谷歌（Google）')" title="谷歌（Google）"><i></i>谷歌（Google）</a>
+                                <a href="#" rel="nofollow" onclick="searchlog(1,0,36,71,'品牌::谷歌（Google）')" title="谷歌（Google）"><i></i>谷歌（Google）</a>
                             </li>
-                            <li data-initial="C" ><a href="" title="CONQUEST"><i></i>CONQUEST</a>
+                            <li data-initial="C" ><a href="#" title="CONQUEST"><i></i>CONQUEST</a>
                             </li>
                             <li data-initial="Q" >
-                                <a href="" rel="nofollow" onclick="searchlog(1,0,38,71,'品牌::青橙（GreenOrange）')" title="青橙（GreenOrange）">
+                                <a href="#" rel="nofollow" onclick="searchlog(1,0,38,71,'品牌::青橙（GreenOrange）')" title="青橙（GreenOrange）">
                                     <i></i><img src="//img20.360buyimg.com/popshop/g15/M05/1E/19/rBEhWlK6ti4IAAAAAAAGHht6L74AAHOMwP_4DoAAAY2585.png" width="102" height="36">青橙（GreenOrange）						</a>
                             </li>
                             <li data-initial="B" >
-                                <a href=""  title="保千里（PROTRULY）"><i></i>保千里（PROTRULY）</a>
+                                <a href="#"  title="保千里（PROTRULY）"><i></i>保千里（PROTRULY）</a>
                             </li>
                         </ul>
                     </div>
@@ -327,12 +212,12 @@
                 <div class="sl-value">
                 <div class="sl-v-list">
                 <ul class="J_valueList">
-                    <li><a href=""><i></i>3.0英寸及以下</a></li>
-                    <li><a href=""><i></i>4.5-3.1英寸</a></li>
-                    <li><a href=""><i></i>5.0-4.6英寸</a></li>
-                    <li><a href=""><i></i>5.5-5.1英寸</a></li>
-                    <li><a href=""><i></i>5.6英寸及以上</a></li>
-                    <li><a href=""><i></i>其他</a></li>
+                    <li><a href="#"><i></i>3.0英寸及以下</a></li>
+                    <li><a href="#"><i></i>4.5-3.1英寸</a></li>
+                    <li><a href="#"><i></i>5.0-4.6英寸</a></li>
+                    <li><a href="#"><i></i>5.5-5.1英寸</a></li>
+                    <li><a href="#"><i></i>5.6英寸及以上</a></li>
+                    <li><a href="#"><i></i>其他</a></li>
                 </ul>
                 </div>
             <div class="sl-btns">
@@ -352,14 +237,14 @@
                 <div class="sl-value">
                     <div class="sl-v-list">
                         <ul class="J_valueList">
-                            <li><a href=""><i></i>双卡单4G</a></li>
-                            <li><a href=""><i></i>双卡双4G</a></li>
-                            <li><a href=""><i></i>电信4G</a></li>
-                            <li><a href=""><i></i>移动4G</a></li>
-                            <li><a href=""><i></i>移动4G/联通4G/电信4G</a></li>
-                            <li><a href=""><i></i>联通4G</a></li>
-                            <li><a href=""><i></i>双卡</a></li>
-                            <li><a href=""><i></i>其他</a></li>
+                            <li><a href="#"><i></i>双卡单4G</a></li>
+                            <li><a href="#"><i></i>双卡双4G</a></li>
+                            <li><a href="#"><i></i>电信4G</a></li>
+                            <li><a href="#"><i></i>移动4G</a></li>
+                            <li><a href="#"><i></i>移动4G/联通4G/电信4G</a></li>
+                            <li><a href="#"><i></i>联通4G</a></li>
+                            <li><a href="#"><i></i>双卡</a></li>
+                            <li><a href="#"><i></i>其他</a></li>
                         </ul>
                     </div>
         <div class="sl-btns">
@@ -379,12 +264,12 @@
                 <div class="sl-value">
                     <div class="sl-v-list">
                     <ul class="J_valueList">
-                        <li><a href=""><i></i>32GB</a></li>
-                        <li><a href=""><i></i>64GB</a></li>
-                        <li><a href=""><i></i>128GB</a></li>
-                        <li><a href=""><i></i>支持内存卡</a></li>
-                        <li><a href="" ><i></i>无</a></li>
-                        <li><a href="" ><i></i>其他</a></li>
+                        <li><a href="#"><i></i>32GB</a></li>
+                        <li><a href="#"><i></i>64GB</a></li>
+                        <li><a href="#"><i></i>128GB</a></li>
+                        <li><a href="#"><i></i>支持内存卡</a></li>
+                        <li><a href="#" ><i></i>无</a></li>
+                        <li><a href="#" ><i></i>其他</a></li>
                     </ul>
                     </div>
         <div class="sl-btns">
@@ -397,7 +282,8 @@
             <a class="sl-e-multiple J_extMultiple" href="javascript:;">多选<i></i></a>
         </div>
     </div>
-    </div><div id="J_selectorSenior" class="J_selectorLine s-line s-senior">
+    </div>
+        <div id="J_selectorSenior" class="J_selectorLine s-line s-senior">
         <div class="sl-wrap">
             <div class="sl-key"><span>高级选项：</span></div>
             <div class="sl-value">
@@ -416,28 +302,28 @@
                 <div class="sl-tab-cont-item" style="display: none;">
                     <div class="sl-v-list">
                         <ul class="J_valueList clearfix">
-                            <li><a href=""><i></i>拍照神器</a></li>
-                            <li><a href=""><i></i>指纹识别</a></li>
-                            <li><a href=""><i></i>支持NFC</a></li>
-                            <li><a href=""><i></i>智能机（老龄模式）</a></li>
-                            <li><a href=""><i></i>曲面屏</a></li>
-                            <li><a href=""><i></i>游戏手机</a></li>
-                            <li><a href=""><i></i>直板键盘</a></li>
-                            <li><a href=""><i></i>翻盖</a></li>
-                            <li><a href=""><i></i>金属机身</a></li>
-                            <li><a href=""><i></i>键盘手机</a></li>
-                            <li><a href=""><i></i>骁龙芯片</a></li>
-                            <li><a href=""><i></i>2K屏</a></li>
-                            <li><a href=""><i></i>Type-C</a></li>
-                            <li><a href=""><i></i>VoLTE</a></li>
-                            <li><a href=""><i></i>三防手机</a></li>
-                            <li><a href=""><i></i>以旧换新</a></li>
-                            <li><a href=""><i></i>儿童手机</a></li>
-                            <li><a href=""><i></i>功能机</a></li>
-                            <li><a href=""><i></i>双卡双待</a></li>
-                            <li><a href=""><i></i>后置双摄像头</a></li>
-                            <li><a href=""><i></i>商务手机</a></li>
-                            <li><a href=""><i></i>安全手机</a></li>
+                            <li><a href="#"><i></i>拍照神器</a></li>
+                            <li><a href="#"><i></i>指纹识别</a></li>
+                            <li><a href="#"><i></i>支持NFC</a></li>
+                            <li><a href="#"><i></i>智能机（老龄模式）</a></li>
+                            <li><a href="#"><i></i>曲面屏</a></li>
+                            <li><a href="#"><i></i>游戏手机</a></li>
+                            <li><a href="#"><i></i>直板键盘</a></li>
+                            <li><a href="#"><i></i>翻盖</a></li>
+                            <li><a href="#"><i></i>金属机身</a></li>
+                            <li><a href="#"><i></i>键盘手机</a></li>
+                            <li><a href="#"><i></i>骁龙芯片</a></li>
+                            <li><a href="#"><i></i>2K屏</a></li>
+                            <li><a href="#"><i></i>Type-C</a></li>
+                            <li><a href="#"><i></i>VoLTE</a></li>
+                            <li><a href="#"><i></i>三防手机</a></li>
+                            <li><a href="#"><i></i>以旧换新</a></li>
+                            <li><a href="#"><i></i>儿童手机</a></li>
+                            <li><a href="#"><i></i>功能机</a></li>
+                            <li><a href="#"><i></i>双卡双待</a></li>
+                            <li><a href="#"><i></i>后置双摄像头</a></li>
+                            <li><a href="#"><i></i>商务手机</a></li>
+                            <li><a href="#"><i></i>安全手机</a></li>
                         </ul>
                         <a class="btn-multiple J_tabMultiple" href="javascript:;">多选<i></i></a>
                     </div>
@@ -449,28 +335,18 @@
                 <div class="sl-tab-cont-item" style="display: none;">
                     <div class="sl-v-list">
                         <ul class="J_valueList clearfix">
-                            <li><a href=""><i></i>拍照神器</a></li>
-                            <li><a href=""><i></i>指纹识别</a></li>
-                            <li><a href=""><i></i>支持NFC</a></li>
-                            <li><a href=""><i></i>智能机（老龄模式）</a></li>
-                            <li><a href=""><i></i>曲面屏</a></li>
-                            <li><a href=""><i></i>游戏手机</a></li>
-                            <li><a href=""><i></i>直板键盘</a></li>
-                            <li><a href=""><i></i>翻盖</a></li>
-                            <li><a href=""><i></i>金属机身</a></li>
-                            <li><a href=""><i></i>键盘手机</a></li>
-                            <li><a href=""><i></i>骁龙芯片</a></li>
-                            <li><a href=""><i></i>2K屏</a></li>
-                            <li><a href=""><i></i>Type-C</a></li>
-                            <li><a href=""><i></i>VoLTE</a></li>
-                            <li><a href=""><i></i>三防手机</a></li>
-                            <li><a href=""><i></i>以旧换新</a></li>
-                            <li><a href=""><i></i>儿童手机</a></li>
-                            <li><a href=""><i></i>功能机</a></li>
-                            <li><a href=""><i></i>双卡双待</a></li>
-                            <li><a href=""><i></i>后置双摄像头</a></li>
-                            <li><a href=""><i></i>商务手机</a></li>
-                            <li><a href=""><i></i>安全手机</a></li>
+                            <li><a href="#"><i></i>拍照神器</a></li>
+                            <li><a href="#"><i></i>指纹识别</a></li>
+                            <li><a href="#"><i></i>支持NFC</a></li>
+                            <li><a href="#"><i></i>智能机（老龄模式）</a></li>
+                            <li><a href="#"><i></i>曲面屏</a></li>
+                            <li><a href="#"><i></i>游戏手机</a></li>
+                            <li><a href="#"><i></i>直板键盘</a></li>
+                            <li><a href="#"><i></i>翻盖</a></li>
+                            <li><a href="#"><i></i>双卡双待</a></li>
+                            <li><a href="#"><i></i>后置双摄像头</a></li>
+                            <li><a href="#"><i></i>商务手机</a></li>
+                            <li><a href="#"><i></i>安全手机</a></li>
                         </ul>
                         <a class="btn-multiple J_tabMultiple" href="javascript:;">多选<i></i></a>
                     </div>
@@ -482,28 +358,28 @@
                 <div class="sl-tab-cont-item" style="display: none;">
                     <div class="sl-v-list">
                         <ul class="J_valueList clearfix">
-                            <li><a href=""><i></i>拍照神器</a></li>
-                            <li><a href=""><i></i>指纹识别</a></li>
-                            <li><a href=""><i></i>支持NFC</a></li>
-                            <li><a href=""><i></i>智能机（老龄模式）</a></li>
-                            <li><a href=""><i></i>曲面屏</a></li>
-                            <li><a href=""><i></i>游戏手机</a></li>
-                            <li><a href=""><i></i>直板键盘</a></li>
-                            <li><a href=""><i></i>翻盖</a></li>
-                            <li><a href=""><i></i>金属机身</a></li>
-                            <li><a href=""><i></i>键盘手机</a></li>
-                            <li><a href=""><i></i>骁龙芯片</a></li>
-                            <li><a href=""><i></i>2K屏</a></li>
-                            <li><a href=""><i></i>Type-C</a></li>
-                            <li><a href=""><i></i>VoLTE</a></li>
-                            <li><a href=""><i></i>三防手机</a></li>
-                            <li><a href=""><i></i>以旧换新</a></li>
-                            <li><a href=""><i></i>儿童手机</a></li>
-                            <li><a href=""><i></i>功能机</a></li>
-                            <li><a href=""><i></i>双卡双待</a></li>
-                            <li><a href=""><i></i>后置双摄像头</a></li>
-                            <li><a href=""><i></i>商务手机</a></li>
-                            <li><a href=""><i></i>安全手机</a></li>
+                            <li><a href="#"><i></i>拍照神器</a></li>
+                            <li><a href="#"><i></i>指纹识别</a></li>
+                            <li><a href="#"><i></i>支持NFC</a></li>
+                            <li><a href="#"><i></i>智能机（老龄模式）</a></li>
+                            <li><a href="#"><i></i>曲面屏</a></li>
+                            <li><a href="#"><i></i>游戏手机</a></li>
+                            <li><a href="#"><i></i>直板键盘</a></li>
+                            <li><a href="#"><i></i>翻盖</a></li>
+                            <li><a href="#"><i></i>金属机身</a></li>
+                            <li><a href="#"><i></i>键盘手机</a></li>
+                            <li><a href="#"><i></i>骁龙芯片</a></li>
+                            <li><a href="#"><i></i>2K屏</a></li>
+                            <li><a href="#"><i></i>Type-C</a></li>
+                            <li><a href="#"><i></i>VoLTE</a></li>
+                            <li><a href="#"><i></i>三防手机</a></li>
+                            <li><a href="#"><i></i>以旧换新</a></li>
+                            <li><a href="#"><i></i>儿童手机</a></li>
+                            <li><a href="#"><i></i>功能机</a></li>
+                            <li><a href="#"><i></i>双卡双待</a></li>
+                            <li><a href="#"><i></i>后置双摄像头</a></li>
+                            <li><a href="#"><i></i>商务手机</a></li>
+                            <li><a href="#"><i></i>安全手机</a></li>
                         </ul>
                         <a class="btn-multiple J_tabMultiple" href="javascript:;">多选<i></i></a>
                     </div>
@@ -515,28 +391,28 @@
                 <div class="sl-tab-cont-item" style="display: none;">
                     <div class="sl-v-list">
                         <ul class="J_valueList clearfix">
-                            <li><a href=""><i></i>拍照神器</a></li>
-                            <li><a href=""><i></i>指纹识别</a></li>
-                            <li><a href=""><i></i>支持NFC</a></li>
-                            <li><a href=""><i></i>智能机（老龄模式）</a></li>
-                            <li><a href=""><i></i>曲面屏</a></li>
-                            <li><a href=""><i></i>游戏手机</a></li>
-                            <li><a href=""><i></i>直板键盘</a></li>
-                            <li><a href=""><i></i>翻盖</a></li>
-                            <li><a href=""><i></i>金属机身</a></li>
-                            <li><a href=""><i></i>键盘手机</a></li>
-                            <li><a href=""><i></i>骁龙芯片</a></li>
-                            <li><a href=""><i></i>2K屏</a></li>
-                            <li><a href=""><i></i>Type-C</a></li>
-                            <li><a href=""><i></i>VoLTE</a></li>
-                            <li><a href=""><i></i>三防手机</a></li>
-                            <li><a href=""><i></i>以旧换新</a></li>
-                            <li><a href=""><i></i>儿童手机</a></li>
-                            <li><a href=""><i></i>功能机</a></li>
-                            <li><a href=""><i></i>双卡双待</a></li>
-                            <li><a href=""><i></i>后置双摄像头</a></li>
-                            <li><a href=""><i></i>商务手机</a></li>
-                            <li><a href=""><i></i>安全手机</a></li>
+                            <li><a href="#"><i></i>拍照神器</a></li>
+                            <li><a href="#"><i></i>指纹识别</a></li>
+                            <li><a href="#"><i></i>支持NFC</a></li>
+                            <li><a href="#"><i></i>智能机（老龄模式）</a></li>
+                            <li><a href="#"><i></i>曲面屏</a></li>
+                            <li><a href="#"><i></i>游戏手机</a></li>
+                            <li><a href="#"><i></i>直板键盘</a></li>
+                            <li><a href="#"><i></i>翻盖</a></li>
+                            <li><a href="#"><i></i>金属机身</a></li>
+                            <li><a href="#"><i></i>键盘手机</a></li>
+                            <li><a href="#"><i></i>骁龙芯片</a></li>
+                            <li><a href="#"><i></i>2K屏</a></li>
+                            <li><a href="#"><i></i>Type-C</a></li>
+                            <li><a href="#"><i></i>VoLTE</a></li>
+                            <li><a href="#"><i></i>三防手机</a></li>
+                            <li><a href="#"><i></i>以旧换新</a></li>
+                            <li><a href="#"><i></i>儿童手机</a></li>
+                            <li><a href="#"><i></i>功能机</a></li>
+                            <li><a href="#"><i></i>双卡双待</a></li>
+                            <li><a href="#"><i></i>后置双摄像头</a></li>
+                            <li><a href="#"><i></i>商务手机</a></li>
+                            <li><a href="#"><i></i>安全手机</a></li>
                         </ul>
                         <a class="btn-multiple J_tabMultiple" href="javascript:;">多选<i></i></a>
                     </div>
@@ -548,28 +424,28 @@
                 <div class="sl-tab-cont-item" style="display: none;">
                     <div class="sl-v-list">
                         <ul class="J_valueList clearfix">
-                            <li><a href=""><i></i>拍照神器</a></li>
-                            <li><a href=""><i></i>指纹识别</a></li>
-                            <li><a href=""><i></i>支持NFC</a></li>
-                            <li><a href=""><i></i>智能机（老龄模式）</a></li>
-                            <li><a href=""><i></i>曲面屏</a></li>
-                            <li><a href=""><i></i>游戏手机</a></li>
-                            <li><a href=""><i></i>直板键盘</a></li>
-                            <li><a href=""><i></i>翻盖</a></li>
-                            <li><a href=""><i></i>金属机身</a></li>
-                            <li><a href=""><i></i>键盘手机</a></li>
-                            <li><a href=""><i></i>骁龙芯片</a></li>
-                            <li><a href=""><i></i>2K屏</a></li>
-                            <li><a href=""><i></i>Type-C</a></li>
-                            <li><a href=""><i></i>VoLTE</a></li>
-                            <li><a href=""><i></i>三防手机</a></li>
-                            <li><a href=""><i></i>以旧换新</a></li>
-                            <li><a href=""><i></i>儿童手机</a></li>
-                            <li><a href=""><i></i>功能机</a></li>
-                            <li><a href=""><i></i>双卡双待</a></li>
-                            <li><a href=""><i></i>后置双摄像头</a></li>
-                            <li><a href=""><i></i>商务手机</a></li>
-                            <li><a href=""><i></i>安全手机</a></li>
+                            <li><a href="#"><i></i>拍照神器</a></li>
+                            <li><a href="#"><i></i>指纹识别</a></li>
+                            <li><a href="#"><i></i>支持NFC</a></li>
+                            <li><a href="#"><i></i>智能机（老龄模式）</a></li>
+                            <li><a href="#"><i></i>曲面屏</a></li>
+                            <li><a href="#"><i></i>游戏手机</a></li>
+                            <li><a href="#"><i></i>直板键盘</a></li>
+                            <li><a href="#"><i></i>翻盖</a></li>
+                            <li><a href="#"><i></i>金属机身</a></li>
+                            <li><a href="#"><i></i>键盘手机</a></li>
+                            <li><a href="#"><i></i>骁龙芯片</a></li>
+                            <li><a href="#"><i></i>2K屏</a></li>
+                            <li><a href="#"><i></i>Type-C</a></li>
+                            <li><a href="#"><i></i>VoLTE</a></li>
+                            <li><a href="#"><i></i>三防手机</a></li>
+                            <li><a href="#"><i></i>以旧换新</a></li>
+                            <li><a href="#"><i></i>儿童手机</a></li>
+                            <li><a href="#"><i></i>功能机</a></li>
+                            <li><a href="#"><i></i>双卡双待</a></li>
+                            <li><a href="#"><i></i>后置双摄像头</a></li>
+                            <li><a href="#"><i></i>商务手机</a></li>
+                            <li><a href="#"><i></i>安全手机</a></li>
                         </ul>
                         <a class="btn-multiple J_tabMultiple" href="javascript:;">多选<i></i></a>
                     </div>
@@ -581,28 +457,28 @@
                 <div class="sl-tab-cont-item" style="display: none;">
                     <div class="sl-v-list">
                         <ul class="J_valueList clearfix">
-                            <li><a href=""><i></i>拍照神器</a></li>
-                            <li><a href=""><i></i>指纹识别</a></li>
-                            <li><a href=""><i></i>支持NFC</a></li>
-                            <li><a href=""><i></i>智能机（老龄模式）</a></li>
-                            <li><a href=""><i></i>曲面屏</a></li>
-                            <li><a href=""><i></i>游戏手机</a></li>
-                            <li><a href=""><i></i>直板键盘</a></li>
-                            <li><a href=""><i></i>翻盖</a></li>
-                            <li><a href=""><i></i>金属机身</a></li>
-                            <li><a href=""><i></i>键盘手机</a></li>
-                            <li><a href=""><i></i>骁龙芯片</a></li>
-                            <li><a href=""><i></i>2K屏</a></li>
-                            <li><a href=""><i></i>Type-C</a></li>
-                            <li><a href=""><i></i>VoLTE</a></li>
-                            <li><a href=""><i></i>三防手机</a></li>
-                            <li><a href=""><i></i>以旧换新</a></li>
-                            <li><a href=""><i></i>儿童手机</a></li>
-                            <li><a href=""><i></i>功能机</a></li>
-                            <li><a href=""><i></i>双卡双待</a></li>
-                            <li><a href=""><i></i>后置双摄像头</a></li>
-                            <li><a href=""><i></i>商务手机</a></li>
-                            <li><a href=""><i></i>安全手机</a></li>
+                            <li><a href="#"><i></i>拍照神器</a></li>
+                            <li><a href="#"><i></i>指纹识别</a></li>
+                            <li><a href="#"><i></i>支持NFC</a></li>
+                            <li><a href="#"><i></i>智能机（老龄模式）</a></li>
+                            <li><a href="#"><i></i>曲面屏</a></li>
+                            <li><a href="#"><i></i>游戏手机</a></li>
+                            <li><a href="#"><i></i>直板键盘</a></li>
+                            <li><a href="#"><i></i>翻盖</a></li>
+                            <li><a href="#"><i></i>金属机身</a></li>
+                            <li><a href="#"><i></i>键盘手机</a></li>
+                            <li><a href="#"><i></i>骁龙芯片</a></li>
+                            <li><a href="#"><i></i>2K屏</a></li>
+                            <li><a href="#"><i></i>Type-C</a></li>
+                            <li><a href="#"><i></i>VoLTE</a></li>
+                            <li><a href="#"><i></i>三防手机</a></li>
+                            <li><a href="#"><i></i>以旧换新</a></li>
+                            <li><a href="#"><i></i>儿童手机</a></li>
+                            <li><a href="#"><i></i>功能机</a></li>
+                            <li><a href="#"><i></i>双卡双待</a></li>
+                            <li><a href="#"><i></i>后置双摄像头</a></li>
+                            <li><a href="#"><i></i>商务手机</a></li>
+                            <li><a href="#"><i></i>安全手机</a></li>
                         </ul>
                         <a class="btn-multiple J_tabMultiple" href="javascript:;">多选<i></i></a>
                     </div>
@@ -611,7 +487,6 @@
                         <a class="btn btn-default J_tabCancel" href="javascript:;">取消</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -626,7 +501,7 @@
                             <a href="#" class=""><span class="fs-tit">销量</span><em class="fs-down"><i class="arrow"></i></em></a>
                             <a href="#" class=""><span class="fs-tit">评论数</span><em class="fs-down"><i class="arrow"></i></em></a>
                             <a href="#" class=""><span class="fs-tit">新品</span><em class="fs-down"><i class="arrow"></i></em></a>
-                            <a href="#" class=""><span class="fs-tit">价格</span><em class="fs-up"><i class="arrow-top"></i><i class="arrow-bottom"></i></em></a>
+                            <a href="#" class="se_main1_t1_a"><span class="fs-tit">价格</span><em class="fs-down"><i class="arrow-top"></i><i class="arrow-bottom"></i></em></a>
                         </div>
                         <div class="f-datagrid">
                             <a href="#" class="fdg-item" data-range="0-349" data-tips="8%的用户喜欢的价位"><span class="def-bar" style="height:16%"></span></a>
@@ -635,14 +510,14 @@
                             <a href="#" class="fdg-item" data-range="3573-8096" data-tips="15%的用户喜欢的价位"><span class="def-bar" style="height:30%"></span></a>
                             <a href="#" class="fdg-item" data-range="8096-¥" data-tips="5%的用户喜欢的价位"><span class="def-bar" style="height:10%"></span></a>
                         </div>
-                        <div id="J_selectorPrice" class="f-price">
+                        <div id="J_selectorPrice" class="f-price ">
                             <div class="f-price-set">
                                 <div class="fl">
-                                    <input type="text" class="input-txt" autocomplete="off" style="color:#ccc" value="¥">
+                                    <input type="text" id="low" class="input-txt" autocomplete="off" value="" placeholder="¥">
                                 </div>
                                 <em>-</em>
                                 <div class="fl">
-                                    <input type="text" class="input-txt" autocomplete="off" style="color:#ccc" value="¥">
+                                    <input type="text" id="high" class="input-txt" autocomplete="off" value="" placeholder="¥">
                                 </div>
                             </div>
                             <div class="f-price-edit">
@@ -701,7 +576,8 @@
                 <!--</div>-->
                 <div class="page clearfix">
                     <div id="J_bottomPage" class="p-wrap">
-                        <span class="p-num"><a class="pn-prev disabled"><i>&lt;</i><em>上一页</em></a><a href="#" class="curr">1</a><a onclick="SEARCH.page(3, true)" href="#">2</a><a onclick="SEARCH.page(5, true)" href="#">3</a><a onclick="SEARCH.page(7, true)" href="#">4</a><a onclick="SEARCH.page(9, true)" href="#">5</a><a onclick="SEARCH.page(11, true)" href="#">6</a><a onclick="SEARCH.page(13, true)" href="#">7</a><b class="pn-break">...</b><a class="pn-next" onclick="SEARCH.page(3, true)" href="#" title="使用方向键右键也可翻到下一页哦！"><em>下一页</em><i>&gt;</i></a></span><span class="p-skip"><em>共<b>100</b>页&nbsp;&nbsp;到第</em><input class="input-txt" type="text" value="1" onkeydown="javascript:if(event.keyCode==13){SEARCH.page_jump(100,1);return false;}"><em>页</em><a class="btn btn-default" onclick="SEARCH.page_jump(100,1)" href="#">确定</a></span>
+                        <span class="p-num"><a class="pn-prev disabled"><i>&lt;</i><em>上一页</em></a><a href="#" class="curr">1</a><a onclick="SEARCH.page(3, true)" href="#">2</a><a onclick="SEARCH.page(5, true)" href="#">3</a><a onclick="SEARCH.page(7, true)" href="#">4</a><a onclick="SEARCH.page(9, true)" href="#">5</a><a onclick="SEARCH.page(11, true)" href="#">6</a><a onclick="SEARCH.page(13, true)" href="#">7</a><b class="pn-break">...</b><a class="pn-next" onclick="SEARCH.page(3, true)" href="#" title="使用方向键右键也可翻到下一页哦！"><em>下一页</em><i>&gt;</i></a></span><span class="p-skip"><em>共<b>100</b>页&nbsp;&nbsp;到第</em>
+                        <input class="input-txt" type="text" value="1" onkeydown="javascript:if(event.keyCode==13){SEARCH.page_jump(100,1);return false;}"><em>页</em><a class="btn btn-default" onclick="SEARCH.page_jump(100,1)" href="#">确定</a></span>
                     </div>
                 </div>
             </div>
@@ -1107,5 +983,7 @@
 <div class="h20"></div>
 <div class="h20"></div>
 <div class="h20"></div>
+<script src="image/jquery.js"></script>
+<script src="image/sousuo.js"></script>
 </body>
 </html>

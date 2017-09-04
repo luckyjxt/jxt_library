@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>行程介绍</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <script type="text/javascript" src="image/jquery.js"></script>
+    <script type="text/javascript" src="image/xingcheng.js"></script>
+    <link type="text/css" rel="stylesheet" href="image/jquery.timepicker.83a9a5f5.css">
+    <link type="text/css" rel="stylesheet" href="image/vbk_header.2485efa2.css">
+    <link type="text/css" rel="stylesheet" href="image/vbooking_route.4ce89731.css">
+</head>
+<body class="body_auto" style="background: rgb(245, 245, 245); opacity: 1; display: block;">
+<div id="jsContainer" class="jsContainer" style="height:0"><textarea id="jsSaveStatus" style="display:none;"></textarea><div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"><div class="c_alert"><div id="alertInfo" class="c_alertinfo">内容</div></div></div><div id="tuna_jmpinfo" style="position: absolute; z-index: 120;"></div><div style="position: absolute;top:0; z-index: 120;display:none" id="tuna_calendar" class="tuna_calendar"></div></div>
+
+<div class="vbk_top">
+    <div class="vbk_center basefix">
+        <a class="vbk_logo" href="#"><i class="logo_ico"></i>携程度假供应商系统</a>
+        <div class="top_right basefix">
+            <div class="troublesome">
+                <a href="#" class="name_info">欢迎您：<span>上海健生教育活动中心</span></a>
+            </div>
+            <div class="new_infor">
+                <a href="#" class="vbk_cypher">帮助<span class="righticontp"></span></a>
+                <a href="#" class="vbk_cypher">咨询及通知<strong style="color: red">(<span>0</span>)</strong></a>
+                <a href="#" class="vbk_cypher">携程公告</a><a href="#" class="vbk_cypher">修改密码</a><a href="#" class="vbk_cypher">注销</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="vbk_top" style="display: none;">
+    <div class="vbk_center basefix">
+        <a class="vbk_logo" href="#"><i class="logo_ico"></i>携程度假供应商系统</a>
+        <div class="top_right basefix">
+            <div class="new_infor">
+                <a href="#" class="vbk_cypher">返回首页</a>
+                <a href="#" class="vbk_cypher">快速切换</a>
+                <a href="#" class="vbk_cypher">注销:<span>上海健生教育活动中心</span></a>
+                <a href="#" class="vbk_cypher">意见反馈</a>
+                <a href="#" class="vbk_cypher">咨询及通知<strong style="color: red">(<span >0</span>)</strong></a>
+                <a href="#" class="vbk_cypher">携程公告</a>
+                <a href="#" class="vbk_cypher">修改密码</a>
+                <a href="#" class="vbk_cypher">帮助<span class="righticontp"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 导航S 此处调用公共接口获取，在header.js文件中引用-->
+<div class="header-warpper">
+    <div class="vbk_nav hahaha">
+        <div class="vbk_center">
+            <div>
+                <style type="text/css">.js_nav_item:hover .js_nav_content {display: block;}.js_nav_content {display: none;}</style>
+            </div>
+            <ul class="vbk_nav_content js_vbk_nav_content">
+                <li><a class="nav_title" href="#">首页</a></li>
+                <li class="js_nav_item"><a class="nav_title" href="#">产品管理</a>
+                    <div class="vbk_base_sub02 js_nav_content">
+                        <dl>
+                            <dt>跟团游</dt>
+                            <dd><a href="#">国内短途（不含飞机）</a><a href="#">国内长途（含飞机、火车）</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>游学</dt>
+                            <dd><a href="#">国内游学</a><a href="#">国内微游学</a></dd>
+                        </dl>
+                        <dl>
+                            <dt>其它</dt>
+                            <dd><a href="#">可选服务维护</a><a href="#">图片管理</a></dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="js_nav_item"><a class="nav_title" href="#">竞价推广</a>
+                    <div class="vbk_base_sub01 js_nav_content">
+                        <a href="#">排名</a><a href="#">充值提现</a><a href="#">竞价效果</a>
+                    </div>
+                </li>
+                <li class="js_nav_item"><a class="nav_title" href="#">订单管理</a>
+                    <div class="vbk_base_sub01 js_nav_content">
+                        <a href="#">订单确认</a><a href="#">团队及订单查询</a><a href="#">签证处理</a><a href="#">占位申请单</a><a href="#">待追踪订单</a>
+                    </div>
+                </li>
+                <li class="js_nav_item"><a class="nav_title" href="#">团队管理</a>
+                    <div class="vbk_base_sub01 js_nav_content">
+                        <a href="#">团队管理</a><a href="#">客人反馈</a><a href="#">文档管理</a><a href="#">地接社团队管理</a><a href="#">导游管理</a>
+                    </div>
+                </li>
+                <li class="js_nav_item"><a class="nav_title" href="#">用户管理</a>
+                    <div class="vbk_base_sub01 js_nav_content">
+                        <a href="#">新增用户</a><a href="#">用户查询</a>
+                    </div>
+                </li>
+                <li class="js_nav_item"><a class="nav_title" href="#">数据管理</a>
+                    <div class="vbk_base_sub01 js_nav_content">
+                        <a href="#">点评管理</a><a href="#">结算数据</a><a href="#">运营报表</a>
+                    </div>
+                </li>
+                <li class="js_nav_item"><a class="nav_title" href="#">400分机管理</a>
+                    <div class="vbk_base_sub01 js_nav_content">
+                        <a href="#">分机号申请</a><a href="#">呼入管理</a><a href="#">呼出管理</a>
+                    </div>
+                </li>
+                <li><a class="nav_title" href="#">帮助中心</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="base_main base_main_auto content_type02 cont_type03">
+    <div data-bind="html:$root.NavMenuContent">
+        <div class="vbk_nav01 vbk_nav02">
+            <div class="cont cont01">
+                <span class="nav_title sales"><a href="#">销售控制</a></span><span class="nav_title">产品信息</span>
+                <div class="nav_map">
+                    <span class=""><em class="icon"></em><a href="#">基本信息</a><i></i></span><span class="curr"><em class="icon"></em><a href="#">行程介绍</a><i></i></span><span class=""><em class="icon"></em><a href="#">多媒体</a><i></i></span><span class=""><em class="icon"></em><a href="#">费用/预订限制</a><i></i></span><span class=""><em class="icon"></em><a href="#">价格库存</a><i></i></span><span class=""><em class="icon"></em><a href="#">附加服务</a><i></i></span><span class=""><em class="icon"></em><a href="#">推荐活动</a><i></i></span><span class=""><em class="icon"></em><a href="#">上车地点</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="route_main route_lead_main route_main01">
+        <!-- 左窗口S -->
+        <div class="date_side01 ui-sortable">
+            <div class="grade_icon01 js_tour_grade">
+                <span class="title">评分</span><span class="num">3.33</span>
+            </div>
+            <!--当需要置顶的时候加上fixed_top这个类名-->
+            <div class="product_scroll_wrap ht01">
+                <a class="js_cur_status cur ui-state-default D1 ui-sortable-handle" href="#"  id="1">
+                    <!--ko text:DayLetter()-->D<!--/ko--><!--ko text:OrderDay()-->1<!--/ko--><i class="change_icon01"></i>
+                </a>
+                <a class="js_cur_status ui-state-default D2 ui-sortable-handle" href="#"  id="2"><!--ko text:DayLetter()-->D<!--/ko--><!--ko text:OrderDay()-->2<!--/ko--><i class="change_icon01"></i></a>
+            </div>
+        </div>
+        <!-- 左窗口E -->
+        <h4 class="title_type03 title_type_black tit_color">
+            <!--ko text:$root.ProviderProductName()-->是是是是<!--/ko-->
+            <div class="title_with_poproute">
+                <span class="id_num id_numcolor">产品ID:<!--ko text:$root.ProductID()-->18135868<!--/ko--></span>
+            </div>
+        </h4>
+        <!--中间部分S-->
+        <div class="route_content route_content01 xc_cont">
+            <div class="product_scroll_wrap">
+                <div class="route_mod01 D1" >
+                    <!-- ko if:IsTitleClick()==false-->
+                    <h4 class="date_title">
+                        <span class="date">第<!--ko text:OrderDay()-->1<!--/ko-->天</span>
+					<span class="rendor_icon">
+					<a style="text-decoration:none;color:#000000" >出发<em class="go_to"><i class="icon train_icon01"></i></em></a>
+					<i class="del_icon01"></i>
+					</span>
+                    </h4>
+                    <div class="routable_cont routable_con_add routable_con_cur">
+                        <i class="bg01"></i>
+                        <div class="routable_add" style="position:absolute;left:0;top:0;z-index:5;">
+                            <a href="#" class="add_btn01" >
+                                <span class="fh">+</span>新增行程
+                            </a>
+                            <div class="add_frame01">
+                                <ul>
+                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                    <li class="">
+                                        <a href="#" class="add_box">用餐</a>
+                                        <span class="icon food_icon01" ></span>
+                                        <div class="second_cont food_cont ">
+                                            <a href="#" >早餐</a>
+                                            <a href="#" >午餐</a>
+                                            <a href="#" >晚餐</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="routable_cont_bg first_cont_bg routable_complete" >
+                            <table>
+                                <colgroup>
+                                    <col class="width01">
+                                    <col class="width02">
+                                    <col class="width03">
+                                </colgroup>
+                                <tbody>
+                                <tr class="tr_top01">
+                                    <td class="t_r">
+                                        <div class="title_icon">
+                                            <span class="icon flt_icon01 js_select_icon"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="complete_time" >08:30</span>
+                                    </td>
+                                    <td>
+                                        <div class="complete_text" >
+                                            出发
+                                        </div>
+                                        <div class="complete_text" >
+                                            是否直飞:待定
+                                        </div>
+                                    </td>
+                                    <!--/ko-->
+                                </tr>
+                                <tr class="tr_bt01">
+                                    <td class="t_r">
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <div class="xc_input_box01">
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="del_icon01" ></i>
+                        </div>
+                        <div class="routable_add">
+                            <a href="#" class="add_btn01" >
+                                <span class="fh">+</span>新增行程
+                            </a>
+                            <div class="add_frame01">
+                                <ul>
+                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                    <li class="">
+                                        <a href="#" class="add_box">用餐</a>
+                                        <span class="icon food_icon01" ></span>
+                                        <div class="second_cont food_cont ">
+                                            <a href="#" >早餐</a>
+                                            <a href="#" >午餐</a>
+                                            <a href="#" >晚餐</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="routable_cont_bg first_cont_bg routable_cont_curr">
+                            <table>
+                                <colgroup>
+                                    <col class="width01">
+                                    <col class="width02">
+                                    <col class="width03">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <td class="t_r">
+                                        <div class="title_icon">
+                                            <span class="icon phone_icon02 js_select_icon" ></span>
+                                            <div class="add_frame01">
+                                                <ul>
+                                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                                    <li>
+                                                        <a href="#" class="add_box">用餐</a>
+                                                        <span class="icon food_icon01" ></span>
+                                                        <div class="second_cont food_cont ">
+                                                            <a href="#">早餐</a>
+                                                            <a href="#">午餐</a>
+                                                            <a href="#">晚餐</a>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div class="select_time">
+                                            <i class="tips_star">*</i>
+                                            <input name="" type="text" readonly="readonly" class="input_text" placeholder="HH">:<input name="" readonly="readonly" type="text" class="input_text" placeholder="MM">
+                                        </div>
+                                        <div class="select_time" style="display: none;">
+                                            <i class=" tips_star">*</i>
+                                            <input name="" type="text" readonly="readonly" class="input_text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="add_box pic_add_box">
+                                            <textarea name="" id="" class="textarea03 input_text_long02" placeholder="请输入自由活动名称" ></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="t_r">
+                                    </td>
+                                    <td>
+                                        <div class="xc_input_box01">
+                                            <div class="time_input_box02 time_box_fillin">
+                                                <span class="tit01">行驶距离</span>
+                                                <div class="input_box01">
+                                                    <input name="" type="text" class="input_text input_text_shot01">
+                                                </div>
+                                            </div>
+                                            <div class="time_input_box01 time_box_fillin">
+                                                <span class="tit01">行驶</span>
+                                                <div class="input_box01">
+                                                    <input type="text"><span class="text">小时</span>
+                                                </div>
+                                                <div class="input_box01">
+                                                    <input type="text"><span class="text">分钟</span>
+                                                </div>
+                                            </div>
+                                            <div class="time_input_box01 time_box_fillin">
+                                                <span class="tit01">活动</span>
+                                                <div class="input_box01">
+                                                    <input type="text"><span class="text">小时</span>
+                                                </div>
+                                                <div class="input_box01">
+                                                    <input type="text"><span class="text">分钟</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="del_icon01"></i>
+                            <!--<span class="routable_add"></span>-->
+                        </div>
+                        <div class="routable_add">
+                            <a href="#" class="add_btn01">
+                                <span class="fh">+</span>新增行程
+                            </a>
+                            <div class="add_frame01">
+                                <ul>
+                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01"></span></li>
+                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01"></span></li>
+                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01"></span></li>
+                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01"></span></li>
+                                    <li>
+                                        <a href="#" class="add_box">用餐</a>
+                                        <span class="icon food_icon01"></span>
+                                        <div class="second_cont food_cont ">
+                                            <a href="#">早餐</a>
+                                            <a href="#">午餐</a>
+                                            <a href="#">晚餐</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02"></span></li>
+                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01"></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="routable_cont_bg first_cont_bg routable_complete" >
+                            <table>
+                                <colgroup>
+                                    <col class="width01">
+                                    <col class="width02">
+                                    <col class="width03">
+                                </colgroup>
+                                <tbody>
+                                <tr class="tr_top01">
+                                    <td class="t_r">
+                                        <div class="title_icon">
+                                            <span class="icon food_icon01 js_select_icon js_breakfast"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="complete_time">全天</span>
+                                    </td>
+                                    <td>
+                                        <div class="complete_text_long">
+                                            早餐:吃饭;
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="tr_bt01">
+                                    <td class="t_r">
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <div class="xc_input_box01">
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="del_icon01"></i>
+                        </div>
+                        <div class="routable_add">
+                            <a href="#" class="add_btn01" >
+                                <span class="fh">+</span>新增行程
+                            </a>
+                            <div class="add_frame01">
+                                <ul>
+                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01"></span></li>
+                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01"></span></li>
+                                    <li>
+                                        <a href="#" class="add_box">用餐</a>
+                                        <span class="icon food_icon01" ></span>
+                                        <div class="second_cont food_cont ">
+                                            <a href="#">早餐</a>
+                                            <a href="#">午餐</a>
+                                            <a href="#">晚餐</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01"></span></li>
+                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02"></span></li>
+                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01"></span></li>
+                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01"></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 新增行程类型S -->
+                    <div class="addnew_route js_add_route" style="z-index: 0;">
+                        <a href="#" class="add_btn01"><span class="fh">+</span>新增行程</a>
+                        <div class="add_frame01 add_frame02">
+                            <ul>
+                                <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                <li>
+                                    <a href="#" class="add_box">用餐</a>
+                                    <span class="icon food_icon01" ></span>
+                                    <div class="second_cont food_cont ">
+                                        <a href="#" >早餐</a>
+                                        <a href="#" >午餐</a>
+                                        <a href="#" >晚餐</a>
+                                    </div>
+                                </li>
+                                <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 新增行程类型E -->
+                </div>
+                <div class="route_mod01 D2" >
+                    <!-- ko if:IsTitleClick()==false-->
+                    <h4 class="date_title">
+                        <span class="date">第<!--ko text:OrderDay()-->2<!--/ko-->天</span>
+					<span class="rendor_icon">
+					<a style="text-decoration:none;color:#000000" >活动</a>
+					<!--/ko-->
+					<i class="del_icon01" ></i>
+					</span>
+                    </h4>
+                    <!--/ko-->
+                    <!-- ko if:IsTitleClick()==true--><!--/ko-->
+                    <div class="routable_cont routable_con_add routable_con_cur" >
+                        <i class="bg01"></i>
+                        <div class="routable_add" style="position:absolute;left:0;top:0;z-index:5;">
+                            <a href="#" class="add_btn01">
+                                <span class="fh">+</span>新增行程
+                            </a>
+                            <div class="add_frame01">
+                                <ul>
+                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                    <li>
+                                        <a href="#" class="add_box">用餐</a>
+                                        <span class="icon food_icon01" ></span>
+                                        <div class="second_cont food_cont ">
+                                            <a href="#" >早餐</a>
+                                            <a href="#" >午餐</a>
+                                            <a href="#" >晚餐</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="routable_cont_bg first_cont_bg routable_complete">
+                            <table>
+                                <colgroup>
+                                    <col class="width01">
+                                    <col class="width02">
+                                    <col class="width03">
+                                </colgroup>
+                                <tbody>
+                                <tr class="tr_top01">
+                                    <td class="t_r">
+                                        <div class="title_icon">
+                                            <span class="icon pic_icon01 js_select_icon"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="complete_time">全天</span>
+                                    </td>
+                                    <td>
+                                        <div class="complete_text_long">
+                                            <a href="#" >活动/0</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="tr_bt01">
+                                    <td class="t_r">
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <div class="xc_input_box01">
+                                            <div class="complete_text" >
+                                                活动时间:约2小时0分钟
+                                            </div>
+                                            <!-- 暂时注释掉E -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="t_r">
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="del_icon01" ></i>
+                        </div>
+                        <div class="routable_add">
+                            <a href="#" class="add_btn01" >
+                                <span class="fh">+</span>新增行程
+                            </a>
+                            <div class="add_frame01">
+                                <ul>
+                                    <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                    <li>
+                                        <a href="#" class="add_box">用餐</a>
+                                        <span class="icon food_icon01" ></span>
+                                        <div class="second_cont food_cont ">
+                                            <a href="#" >早餐</a>
+                                            <a href="#" >午餐</a>
+                                            <a href="#" >晚餐</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                    <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                    <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 新增行程类型S -->
+                    <div class="addnew_route js_add_route" style="z-index: 0;">
+                        <a href="#"  class="add_btn01"><span class="fh">+</span>新增行程</a>
+                        <div class="add_frame01 add_frame02">
+                            <ul>
+                                <li><a href="#" class="add_box">航班</a><span class="icon flt_icon01" ></span></li>
+                                <li><a href="#" class="add_box">交通</a><span class="icon car_icon01" ></span></li>
+                                <li><a href="#" class="add_box">酒店</a><span class="icon hotel_icon01" ></span></li>
+                                <li><a href="#" class="add_box">景点</a><span class="icon flag_icon01" ></span></li>
+                                <li>
+                                    <a href="#" class="add_box">用餐</a>
+                                    <span class="icon food_icon01" ></span>
+                                    <div class="second_cont food_cont ">
+                                        <a href="#" >早餐</a>
+                                        <a href="#" >午餐</a>
+                                        <a href="#" >晚餐</a>
+                                    </div>
+                                </li>
+                                <li><a href="#" class="add_box">购物</a><span class="icon buy_icon01" ></span></li>
+                                <li><a href="#" class="add_box">自由活动</a><span class="icon phone_icon02" ></span></li>
+                                <li><a href="#" class="add_box">课程</a><span class="icon book_icon01" ></span></li>
+                                <li><a href="#" class="add_box">活动</a><span class="icon pic_icon01" ></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 新增行程类型E -->
+                </div>
+                <!-- /ko -->
+                <!-- 首次渲染天数列表E -->
+            </div>
+        </div>
+        <!--  中间部分E-->
+        <!-- 当需要置顶的时候加上fixed_top这个类名 -->
+        <div class="right_side02 right_fixed01">
+            <h4>剪贴板</h4>
+            <div contenteditable="true" placeholder="您可以将你即将录入的行程介绍复制粘贴到这里哦，方便您后续参考录入" class="product_scroll_wrap add_new01" style="height:560px">
+            </div>
+        </div>
+        <!-- FooterS-->
+        <div class="footer_cont" style="">
+            <div class="btn_box">
+                <div class="assist_btn_box">
+                    <div class="main">
+                        <a href="#" class="cur cur_version">当前版本<i class="bg"></i></a>
+                        <a class="js_draft" href="#">草稿</a>
+                    </div>
+                </div>
+                <a href="#" class="gray_btn gray_btn06">存为草稿</a>
+                <a href="#" class="org_btn org_btn03" >保存</a>
+                <a href="#" class="blue_btn blue_btn08" >发送审核</a>
+            </div>
+        </div>
+        <!--FooterE -->
+    </div>
+</div>
+<!--  行程评分S-->
+<div class="frame_type01" style="display:none">
+    <div class="mask_lay" style="display:none"></div>
+</div>
+<!-- 报错样式 -->
+<div class="frame_tips05" style="display: none;">请输入行程开始时间!</div>
+<!--  行程评分E-->
+<!-- 行程评分蒙版Start -->
+<script id="TourGradeMask" type="text/html">
+    <div class="vbooking_masking01 vbooking_masking03" style="width:800px;margin: 15% auto;">
+        <a href="#" class="close_icon" data-bind="click:$root.hideMask"><i class="close_icon03"></i></a>
+        <div class="main" style="padding:20px 10px;">
+            <h4 class="title_type01">行程描述评分</h4>
+            <div class="xc_grade">
+                <div class="text">总分：<span class="grade_num"><i class="num"></i>分</span>干的不错</div><a href="#" class="org_btn org_btn05" data-bind="click:$root.goEdit">去编辑</a>
+            </div>
+            <table width="100%" class="grade_table01">
+                <tbody>
+                <tr>
+                    <th>系统景点</th>
+                    <th>非外观景点</th>
+                    <th>系统酒店</th>
+                    <th>酒店不确定性</th>
+                    <th>采用精准时间</th>
+                    <th>行程单填写</th>
+                </tr>
+                <tr>
+                    <!-- ko foreach: $root.TourGradeList -->
+                    <td>
+                        <p class="grade_num02" data-bind="text: Grade+'分'"></p>
+                        <p><span class="" data-bind="css:IconName"></span></p>
+                        <p class="text" data-bind="text: GradeDescription"></p>
+                    </td>
+                    <!-- /ko -->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<!-- 行程评分蒙版End -->
+<!-- 时间选择蒙版Start -->
+<script id="timeTemplate" type="text/html">
+    <div class="time_frame01">
+        <div class="time_table">
+            <div class="left">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="#" class="round_icon01">00</a></td>
+                        <td><a href="#" class="round_icon01">01</a></td>
+                        <td><a href="#" class="round_icon01">02</a></td>
+                        <td><a href="#" class="round_icon01">03</a></td>
+                        <td><a href="#" class="round_icon01">04</a></td>
+                        <td><a href="#" class="round_icon01">05</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="round_icon01">06</a></td>
+                        <td><a href="#" class="round_icon01">07</a></td>
+                        <td><a href="#" class="round_icon01">08</a></td>
+                        <td><a href="#" class="round_icon01">09</a></td>
+                        <td><a href="#" class="round_icon01">10</a></td>
+                        <td><a href="#" class="round_icon01">11</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="round_icon01">12</a></td>
+                        <td><a href="#" class="round_icon01">13</a></td>
+                        <td><a href="#" class="round_icon01">14</a></td>
+                        <td><a href="#" class="round_icon01">15</a></td>
+                        <td><a href="#" class="round_icon01">16</a></td>
+                        <td><a href="#" class="round_icon01">17</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="round_icon01">18</a></td>
+                        <td><a href="#" class="round_icon01">19</a></td>
+                        <td><a href="#" class="round_icon01">20</a></td>
+                        <td><a href="#" class="round_icon01">21</a></td>
+                        <td><a href="#" class="round_icon01">22</a></td>
+                        <td><a href="#" class="round_icon01">23</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <span class="maohao"></span>
+            </div>
+
+            <div class="right">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><a href="#" class="round_icon01">00</a></td>
+                        <td><a href="#" class="round_icon01">10</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="round_icon01">15</a></td>
+                        <td><a href="#" class="round_icon01">20</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="round_icon01">30</a></td>
+                        <td><a href="#" class="round_icon01">40</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="round_icon01">45</a></td>
+                        <td><a href="#" class="round_icon01">50</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="tips_title"><span>不确定具体时间点</span></p>
+        <p class="date_box"><a href="#" class="round_icon01">上午</a><a href="#" class="round_icon01">下午</a><a href="#" class="round_icon01">晚上</a><a href="#" class="round_icon01">全天</a></p>
+    </div>
+</script>
+<!-- 时间选择蒙版End -->
+<!-- 删除行程模板Start -->
+<script id="delRouteMask" type="text/html">
+    <div class="del_frame01 del_frame02 del_frame01_all" style="display:block;">
+        <div class="main">
+            <div class="middle">
+                确认要删除此行程？
+                <div class="btn_box"><a href="#" class="blue_btn blue_btn01 js_sure" style="width:40px;">确定</a><a href="#" class="gray_btn gray_btn01 js_cancle" data-bind="click:$root.hideMask" style="width:40px;">取消</a></div>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- 删除行程模板End -->
+<script id="delDayRouteMask" type="text/html">
+    <div class="del_frame01 del_frame02 del_frame01_all" style="display:block;">
+        <div class="main">
+            <div class="middle">
+                确认要删除这一天的行程？
+                <div class="btn_box"><a href="#" class="blue_btn blue_btn01 js_sure" data-bind="click:$root.removeDayRoute" style="width:40px;">确定</a><a href="#" class="gray_btn gray_btn01 js_cancle" data-bind="click:$root.hideMask" style="width:40px;">取消</a></div>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- 复制到其他天数模板Start -->
+<script id="copyDayMask" type="text/html">
+    <div class="del_frame01 del_frame02 del_frame01_all" style="display:block;">
+        <div class="main">
+            <div class="middle">
+                是否复制到其他天数，并替换已有信息？
+                <div class="btn_box"><a href="#" class="blue_btn blue_btn01 js_sure"  style="width:40px;">确定</a><a href="#" class="gray_btn gray_btn01 js_cancle" data-bind="click:$root.hideMask" style="width:40px;">取消</a></div>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- 复制到其他天数模板End -->
+<script id="save-success" type="text/html">
+    <div class="del_frame01 del_frame02 del_frame01_all" style="display:block;">
+        <div class="main">
+            <div class="middle">
+                保存成功
+                <div class="btn_box"><a href="#" class="blue_btn blue_btn01 js_sure" style="width:40px;">确定</a></div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="send-success" type="text/html">
+    <div class="del_frame01 del_frame02 del_frame01_all" style="display:block;">
+        <div class="main">
+            <div class="middle">
+                发送审核成功
+                <div class="btn_box"><a href="#" class="blue_btn blue_btn01 js_sure" style="width:40px;">确定</a></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<object style="position: absolute; width: 1px; height: 1px; left: -1000px; top: -1000px; visibility: visible;" width="1" height="1" id="flash_device_" type="application/x-shockwave-flash" data="./行程介绍_files/DeviceInfo.37811ade.swf.下载"><param name="allowScriptAccess" value="always"><param name="menu" value="false"><param name="flashvars" value="onReady=___fp_swf_loaded&amp;guid_=df70ce94-5c32-42ee-b65c-dcbd0334096f&amp;rsg_=kBaCSHfpmzDlb0D3qBtSPB"></object><div id="util_uiPlugin_loadingMask" style="width: 100%; height: 100%; background: url(&quot;//webresource.c-ctrip.com/ResTourVbookingOnline/R1/Css/loading.gif&quot;) center center no-repeat white; opacity: 0.5; top: 0px; left: 0px; z-index: 2147483647; position: fixed; display: none;"></div><div id="layer" class="reject" style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 1006; display: none;"><div style="z-index: -100; background-color: #EEEEEE; position: fixed; opacity: 0.5;  top: 0px; left: 0px; width: 100%; height: 100%;"></div><div id="layerContent">
+    <div class="del_frame01 del_frame02 del_frame01_all" style="display: block; height: 100px;">
+        <div class="main">
+            <div class="middle">
+                确认要删除此行程？
+                <div class="btn_box"><a href="#" class="blue_btn blue_btn01 js_sure" style="width:40px;">确定</a><a href="#" class="gray_btn gray_btn01 js_cancle" data-bind="click:$root.hideMask" style="width:40px;">取消</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

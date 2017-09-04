@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .order_details{margin-top:48px;}
+        .order_details ul{margin:0px;padding:0px;border-bottom: 1px solid #b4b4b4;position: relative;}
+        .order_details ul li{float: left;display: block;width: 150px;position: absolute;top:-24px;text-align: center;font-size: 17px;color: #2077d6}
+        .order_details .checked{background-color: #fff;color: #636363;border:1px solid #b4b4b4;border-bottom:0 ;}
+        .prepaids{position: absolute;left:75px;}
+        .prepaids2{position: absolute;left:255px;}
+        .prepaids3{position: absolute;left:413px;}
+        .hidedomdiv{display: none}
+        .showdomdiv{display: block;}
+        .showsss{border:1px solid red;text-align: center;line-height: 100px;font-size:40px;}
+    </style>
+</head>
+
+<body>
+
+<div class="order_details">
+    <ul>
+        <li class="fortab prepaids checked">Tab1</li>
+        <li class="fortab prepaids2">Tab2</li>
+        <li class="fortab prepaids3">Tab3</li>
+    </ul>
+</div>
+<div>
+    <div class="tablelist showdomdiv showsss">
+        1
+    </div>
+    <div class="tablelist hidedomdiv showsss">
+        2
+    </div>
+    <div class="tablelist hidedomdiv showsss" >
+        3
+    </div>
+</div>
+<script src="image/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        // 改为鼠标移上的事件只需把click改为mousemove
+        $(".fortab").mousemove(function(){
+            var number=$(".fortab").index(this);
+            $(this).addClass("checked");
+            $(this).siblings().removeClass("checked");
+            $(".tablelist:eq("+number+")").show();
+            $(".tablelist:eq("+number+")").siblings().hide();
+        });
+    });
+</script>
+</body>
+</html>
