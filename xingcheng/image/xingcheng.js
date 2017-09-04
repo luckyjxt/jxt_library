@@ -142,13 +142,15 @@ function bianlishouhui(){
     richengxinxi = {}
     $.each($(".route_content .routable_cont_curr").find("input"||"textarea"),function(i,con){
         var rcKey = $(con).attr("data-bind").split(",")[0].slice(6)
-        var rcValue = $(con).val() || $(con).attr("placeholder") || ""
+        var rcValue = $(con).val() || ""
         richengxinxi[rcKey] = rcValue
         
     })    
     if(!$.isEmptyObject(richengxinxi)){
+        box01 = ""
+        td23 = ""
         $.each(richengxinxi,function(i,con){
-            if(true){
+            if(con != ""){
                 console.log(i+"/"+con)
                 switch (i) {
                     case "TakeOffTime_HH":
