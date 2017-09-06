@@ -27,6 +27,7 @@ $(function(){
     var wancan = "<div class='routable_cont_bg first_cont_bg routable_cont_curr'><table><colgroup><col class='width01'><col class='width02'><col class='width03'></colgroup><tbody><tr><td class='t_r'><div class='title_icon'><span class='icon food_icon01 js_select_icon js_breakfast' data-bind='event:{click:function(d,e){$root.changeRouteType(e,d)}},css:BreakFastFlagView()==true?'js_breakfast':LunchFlagView()==true?'js_lunch':'js_dinner''></span><div class='add_frame01'><ul><li><a href='' class='add_box'>航班</a><span class='icon flt_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>交通</a><span class='icon car_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>酒店</a><span class='icon hotel_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>景点</a><span class='icon flag_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>用餐</a> <span class='icon food_icon01' data-bind='event:{mouseover:function(d,e){$root.BlockDinnerMask(e,d)},mouseout:function(d,e){$root.HideDinnerMask(e,d)}}'></span><div class='second_cont food_cont'><a href='javascript:void(0);' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'>晚餐</a> <a href='javascript:void(0);' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'>晚餐</a> <a href='javascript:void(0);' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'>晚餐</a></div></li><li><a href='' class='add_box'>购物</a><span class='icon buy_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>自由活动</a><span class='icon phone_icon02' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>课程</a><span class='icon book_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li><li><a href='' class='add_box'>活动</a><span class='icon pic_icon01' data-bind='event:{click:function(d,e){$root.getChangeAddNewRouteValue(e,d)}}'></span></li></ul></div></div></td><td rowspan='2'><div class='select_time' data-bind='visible:!SingleTimeVal(),css:SingleTimeVal()==true?'select_time01 ':'',css:TimeHighLightColor()==true?'wrong_style01':'''><i class='tips_star'>*</i> <input name='' type='text' readonly class='input_text' placeholder='HH' data-bind='value:TakeOffTime_HH,event:{click:function(d,e){ $root.getTime(e,d)},blur:function(d){$root.validateNumber(d)}}'>:<input name='' readonly type='text' class='input_text' placeholder='MM' data-bind='value:TakeOffTime_MM,event:{click:function(d,e){ $root.getTime(e,d)},blur:function(d){$root.validateNumber(d)}}'></div><div class='select_time' data-bind='visible:SingleTimeVal(),css:SingleTimeVal()==true?'select_time01 ':''' style='display:none'><i class='tips_star'>*</i> <input name='' type='text' readonly class='input_text' data-bind='value:TakeOffTime_HH,event:{click:function(d,e){ $root.getTime(e,d)},blur:function(d){$root.validateNumber(d)}}'></div></td><td><div class='add_box food_add_box'><div class='input_handle01'><span class='food_tit01'>晚餐：</span>        <input name='' type='text' class='input_text input_text_long02' placeholder='请输入晚餐内容' data-bind='value:Description'>    <a href='#' class='del'><i class='close_icon02'></i></a></div><label class='choose_cont'><i class='js_have_dinner choose_box01' data-bind='css:ByYourSelf()==true?'choose_box02':'choose_box01',event:{click:function(d, e){ $root.selectOwnCharge(e,d)}}'></i>自理</label><div class='price_ck' data-bind='visible:ByYourSelf()==true' style='display:none'><div class='select_cont01' data-bind='event:{click:function(d,e){ $root.selectMoneyType(e,d)}}'><span class='show_text' data-bind='text:DinnerCostCurrency'>人民币</span><i class='down_icon01'></i><div class='select_list'><div class='product_scroll_wrap' style='height:300px'><ul class='type01'><li data-bind='text:Description'>迪尔汗</li><li data-bind='text:Description'>阿富汗尼</li><li data-bind='text:Description'>亚美尼亚德拉姆</li><li data-bind='text:Description'>阿根廷比索</li><li data-bind='text:Description'>澳大利亚元</li><li data-bind='text:Description'>阿塞拜疆马纳特</li><li data-bind='text:Description'>阿塞拜疆马纳特</li><li data-bind='text:Description'>保加利亚列弗</li><li data-bind='text:Description'>巴林第纳尔</li><li data-bind='text:Description'>文莱元</li><li data-bind='text:Description'>巴西里尔</li><li data-bind='text:Description'>博茨瓦纳普拉</li><li data-bind='text:Description'>白俄罗斯卢布</li><li data-bind='text:Description'>加拿大元</li><li data-bind='text:Description'>瑞士法郎</li><li data-bind='text:Description'>智利比索</li><li data-bind='text:Description'>离岸人民币</li><li data-bind='text:Description'>哥伦比亚比索</li><li data-bind='text:Description'>哥斯达黎加科朗</li><li data-bind='text:Description'>佛得角群岛埃斯库多</li><li data-bind='text:Description'>捷克克朗</li><li data-bind='text:Description'>丹麦克朗</li><li data-bind='text:Description'>阿尔及利亚第纳尔</li><li data-bind='text:Description'>埃及镑</li><li data-bind='text:Description'>欧元</li><li data-bind='text:Description'>斐济元</li><li data-bind='text:Description'>英镑</li><li data-bind='text:Description'>格鲁吉亚拉里</li><li data-bind='text:Description'>加纳塞地</li><li data-bind='text:Description'>危地马拉格查尔</li><li data-bind='text:Description'>港币</li><li data-bind='text:Description'>克罗地亚库纳</li><li data-bind='text:Description'>匈牙利福林</li><li data-bind='text:Description'>印尼盾</li><li data-bind='text:Description'>以色列新谢克尔</li><li data-bind='text:Description'>印度卢比</li><li data-bind='text:Description'>伊朗里亚尔</li><li data-bind='text:Description'>冰岛克朗</li><li data-bind='text:Description'>牙买加元</li><li data-bind='text:Description'>约旦第纳尔</li><li data-bind='text:Description'>日元</li><li data-bind='text:Description'>韩元</li><li data-bind='text:Description'>科威特第纳尔</li><li data-bind='text:Description'>哈萨克斯坦</li><li data-bind='text:Description'>斯里兰卡卢比</li><li data-bind='text:Description'>莱索托洛蒂</li><li data-bind='text:Description'>摩洛哥道拉姆</li><li data-bind='text:Description'>摩尔多瓦列伊</li><li data-bind='text:Description'>马达加斯加阿里亚里</li><li data-bind='text:Description'>澳门元</li><li data-bind='text:Description'>毛里求斯卢比</li><li data-bind='text:Description'>墨西哥比索</li><li data-bind='text:Description'>马来西亚林吉特</li><li data-bind='text:Description'>莫桑比克新梅蒂卡尔</li><li data-bind='text:Description'>纳米比亚元</li><li data-bind='text:Description'>尼日利亚奈拉</li><li data-bind='text:Description'>挪威克朗</li><li data-bind='text:Description'>新台币</li><li data-bind='text:Description'>新西兰元</li><li data-bind='text:Description'>阿曼里亚尔</li><li data-bind='text:Description'>巴布亚基纳</li><li data-bind='text:Description'>菲律宾比索</li><li data-bind='text:Description'>巴基斯坦卢比</li><li data-bind='text:Description'>波兰兹罗提</li><li data-bind='text:Description'>卡塔尔里亚尔</li><li data-bind='text:Description'>人民币</li><li data-bind='text:Description'>罗马尼亚列伊</li><li data-bind='text:Description'>俄罗斯卢布</li><li data-bind='text:Description'>沙特里亚尔</li><li data-bind='text:Description'>瑞典克朗</li><li data-bind='text:Description'>新加坡元</li><li data-bind='text:Description'>斯威士兰里兰吉尼</li><li data-bind='text:Description'>泰株</li><li data-bind='text:Description'>土耳其里拉</li><li data-bind='text:Description'>新台币</li><li data-bind='text:Description'>乌克兰格里夫纳</li><li data-bind='text:Description'>美元</li><li data-bind='text:Description'>越南盾</li><li data-bind='text:Description'>中非共同体法郎</li><li data-bind='text:Description'>西非法郎</li><li data-bind='text:Description'>太平洋法郎</li><li data-bind='text:Description'>南非兰特</li></ul></div></div></div><div class='money'><input onkeyup='this.value=this.value.replace(/[^\d\.]/g,&quot;&quot;)' class='input_text' type='text' placeholder='用餐费用参考' style='width:90px' data-bind='value:DinnerCost'></div></div></div></td></tr><tr><td class='t_r'></td><td><div class='xc_input_box01'><div class='time_input_box02 time_box_fillin'><span class='tit01'>行驶距离</span><div class='input_box01'><input name='' type='text' class='input_text input_text_shot01' onkeyup='this.value=this.value.replace(/[^\d\.]/g,&quot;&quot;)' placeholder='行驶距离' data-bind='value:Distance,event:{blur:function(d){$root.validateNumber(d)}}'></div></div><div class='time_input_box01 time_box_fillin'><span class='tit01'>行驶</span><div class='input_box01'><input type='text' onkeyup='this.value=this.value.replace(/[^\d\.]/g,&quot;&quot;)' data-bind='value:DriveTimeHh,event:{blur:function(d){$root.validateNumber(d)}}'><span class='text'>小时</span></div><div class='input_box01'><input type='text' onkeyup='this.value=this.value.replace(/[^\d\.]/g,&quot;&quot;)' data-bind='value:DriveTimeMm,event:{blur:function(d){$root.validateNumber(d)}}'><span class='text'>分钟</span></div></div><div class='time_input_box01 time_box_fillin'><span class='tit01'>用餐</span><div class='input_box01'><input type='text' onkeyup='this.value=this.value.replace(/[^\d\.]/g,&quot;&quot;)' data-bind='value:TakeTimeHh,event:{blur:function(d){$root.validateNumber(d)}}'><span class='text'>小时</span></div><div class='input_box01'><input type='text' onkeyup='this.value=this.value.replace(/[^\d\.]/g,&quot;&quot;)' data-bind='value:TakeTimeMm,event:{blur:function(d){$root.validateNumber(d)}}'><span class='text'>分钟</span></div></div><div class='copy_btn copy_btn_cur'><a href='javascript:void(0);' data-bind='click:function(d,e){$root.copyOtherDays(e,d)}'>复制到其他天数</a><div class='time_frame01' style='width:148px;margin-top:-1px;display:none'><div class='date_cont'><a href='javascript:void(0);' class='round_icon01' data-bind='text:Name,click:function(d,e){$root.getDayValue(e,d)}'>D1</a>   <div class='btn_box'><a href='javascript:void(0);' class='sure' data-bind='click:function(d,e){$root.SureCopy(e,d)}'>确定</a> <a href='javascript:void(0);' class='js_cancle' data-bind='click:function(d,e){$root.CancleCopy(e,d)}'>取消</a></div></div></div></div></div></td></tr></tbody></table><i class='del_icon01' data-bind='event:{click:function(d,e){$root.RemoveCurRouteMask(e,d)}}'></i> </div>";
 
 
+    var biaotibox = "<div class='title_box01' data-bind='css:TitleHighLight()==true?'title_box01 wrong_style01':'title_box01'' style='border: 1px solid rgb(204, 204, 204);'> <textarea class='input_text title_input_text01' placeholder='请输入标题' data-bind='value:DailyDesc,event:{focus:function(d,e){$root.DisplayTrafficIcon(e,d)},blur:function(d,e){$root.changeNotEditTitle(e,d)}}'></textarea> </div>"
     // console.log(hangban);
     $("body").on("click",function(e){
         // console.log(e)
@@ -307,9 +308,33 @@ $(function(){
             $(this).parent().remove()
         }
     });
-
-
-
+    
+    //删除每日行程大标题
+    $(".date_title").on("click",".del_icon01",function(){
+        if(confirm("确定要删除吗？")){
+            $(this).parents(".date_title").addClass("cur")
+            if($(this).parent().hasClass("rendor_icon")){
+                $(this).parent().parent().append(biaotibox).append("<i class='del_icon01' data-bind='visible:IsRouteListNull(),event:{click:function(d,e){$root.RemoveCurDayRouteMask(e,d)}}'></i>")
+                $(this).parent().remove()
+            }else{
+                $(this).prev().find("textarea").val("")
+            }
+        }
+    })
+    
+    //重新编辑每日行程大标题
+    $(".date_title").on("click",function(){
+        var aaa = yanzhengbitian();console.log(aaa);if(aaa != undefined){return}//验证必填想
+        bianlishouhui()
+        if($(this).hasClass("cur")){return}
+        var dabiaoti = $(this).find("a").text()
+        $(this).append(biaotibox).append("<i class='del_icon01' data-bind='visible:IsRouteListNull(),event:{click:function(d,e){$root.RemoveCurDayRouteMask(e,d)}}'></i>").find("textarea").val(dabiaoti)
+        
+        $(this).addClass("cur").find(".rendor_icon").remove()
+    })
+    
+    
+    
 
     //点击弹出选择时间
     var riqi = $("#timeTemplate").text();
@@ -367,10 +392,20 @@ $(function(){
 // var td3 = "";
 // var seltime = "";
 // var yibianji = "";
+function dabiaotishouhui(){
+    var dabiaoti = $(".date_title.cur").find("textarea").val()
+    $(".date_title.cur").find(".title_box01").remove()
+    $(".date_title.cur").find("i").remove()
+    $(".date_title.cur").append("<span class='rendor_icon'><a style='text-decoration:none;color:#000000' data-bind='html:DailyDesc()'>"+dabiaoti+"</a><i class='del_icon01' data-bind='event:{click:function(d,e){$root.RemoveCurDayRouteMask(e,d)}}'></i></span>")
+    $(".date_title.cur").removeClass("cur")
+    
+}
+
+
 //检测并收回正在编辑的日程
 function bianlishouhui(){
 //      $(this).parents(".route_mod01").find(".time_frame01").parents(".select_time").find(".time_frame01").remove()
-
+        dabiaotishouhui()
 //  console.log($(this.document).find(".route_mod01").find(".time_frame01").remove());
     $(this).find(".route_mod01").find(".time_frame01").parents(".select_time").find(".time_frame01").remove();//这里的this是window
 
@@ -454,30 +489,33 @@ $(function(){
     $(".routable_cont").on("click",".copy_btn_cur",function(){
     	console.log("111");
     	$(this).find(".time_frame01").show();
-});
+    });
 
     $(".routable_cont").on("click",".copy_btn_cur .js_cancle",function(e){
         e.stopPropagation();
     $(this).parents(".time_frame01").hide();
 
-});
-    $(".routable_cont").on("click",".round_icon01 ",function(){
-        $(this).toggleClass("round_icon01_cur");
     });
-    	    $(".routable_cont").on("click",".sure ",function(){
+    
+    $(".routable_cont").on("click",".round_icon01 ",function(){
+        $(this).parents("table").find("a").removeClass("round_icon01_cur");
+        $(this).toggleClass("round_icon01_cur")
+    });
+    
+    $(".routable_cont").on("click",".sure ",function(){
 
-    	    	var class1= $(this).parent().prev(".round_icon01").hasClass("round_icon01_cur");
+    	var class1= $(this).parent().prev(".round_icon01").hasClass("round_icon01_cur");
 
-    	    	    $(this).parent().parent().parent().hide();
+    	    $(this).parent().parent().parent().hide();
 
-    	    if(class1){
-					bianlishouhui();
-    	    	 console.log($(this).parents(".routable_cont_bg"));
-               $(this).parents(".D1").next(".D2").find(".routable_cont").append($(this).parents(".routable_cont_bg").clone());
+        if(class1){
+    			bianlishouhui();
+        	 console.log($(this).parents(".routable_cont_bg"));
+           $(this).parents(".D1").next(".D2").find(".routable_cont").append($(this).parents(".routable_cont_bg").clone());
 
-             }else{
-	            alert("请选择复制到那一天");
-            }
+         }else{
+            alert("请选择复制到那一天");
+        }
     });
 
 
