@@ -564,13 +564,24 @@ $(function(){
 
 
 });
+var tishi;
 function yanzhengbitian(){
     var wrong ;
+    var placeholder;
     $.each($(".route_mod01").find("i.tips_star"),function(i,con){
         if($(con).parent().css("display") != "none" && $(con).next("input").val() == ""){
             $(con).parent().addClass("wrong_style01")
             wrong = $(con).parent();
+            placeholder = $(con).next("input").attr("placeholder")
+            if(placeholder == "HH" || placeholder == "MM"){
+                $(".frame_tips05").html("请输入行程开始时间")
+            }else{
+                $(".frame_tips05").html(placeholder)
+            }
             console.log("请填入必填项")
+            $(".frame_tips05").show()
+            clearInterval(tishi)
+            tishi = setInterval(function(){$(".frame_tips05").hide()},1000)
         }else{$(con).parent().removeClass("wrong_style01")}
     })
     return wrong
