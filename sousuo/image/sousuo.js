@@ -42,16 +42,23 @@ $(function(){
     var underhover;
     var trigger_a ;
     var xuanxiangka = null;
+    var a_index;
     $(".sl-tab-trigger a").hover(function() {
             clearTimeout(xuanxiangka);
 //  	clearTimeout(xuanxiangka);
             trigger_a = this;
             underhover = true;
-            var a_index=$(this).index();
+            a_index=$(this).index();
             $(this).parents(".sl-value").nextAll(".sl-tab-cont").find(".sl-tab-cont-item").hide();
             $(this).parents(".sl-value").nextAll(".sl-tab-cont").find(".sl-tab-cont-item").eq(a_index).show();
-            $(this).addClass('trig-curr').siblings().removeClass("trig-curr");},
+            $(this).addClass('trig-curr').siblings().removeClass("trig-curr");
+            $(this).parents(".sl-value").nextAll(".sl-tab-cont").find(".sl-tab-cont-item").eq(a_index).siblings().removeClass("multiple").find(".J_tabMultiple").show()
+        
+        },
+            
         function (){
+            console.log(a_index)
+            
             xuanxiangka = setTimeout(function(){
                 if(underhover){
                     $(trigger_a).removeClass('trig-curr');
@@ -62,15 +69,20 @@ $(function(){
 
 
     $(".sl-tab-cont .sl-tab-cont-item").hover(function(){
+        clearTimeout(xuanxiangka);
 
         underhover = false;
         var s_index=$(this).index();
         $(".sl-tab-trigger a").eq(s_index).addClass('trig-curr');
     },function(){
+        
         clearTimeout(xuanxiangka);
+        var that = this
         xuanxiangka = setTimeout(function(){
             $(".sl-tab-cont .sl-tab-cont-item").hide();
             $(".sl-tab-trigger a").removeClass('trig-curr');
+            $(that).removeClass("multiple").find(".J_tabMultiple").show()
+            
         },1000)
     });
 });
@@ -147,6 +159,7 @@ $(function(){
         $(this).hide().parent().parent().addClass("multiple").removeClass("extend");
         $(this).parent().parent().find(".J_valueList").on("click","li",jihuoduoxuan)
     });
+    
     //选项卡取消多选#J_selectorSenior
     $("#J_selectorSenior").on("click",".J_btnsCancel",function(e){
         $(this).parent().parent().find(".J_valueList").off("click","li");
@@ -162,6 +175,7 @@ $(function(){
 
 
     function jihuoduoxuan(e){
+        e.preventDefault()
         if($(this).hasClass("selected")){
             $(this).removeClass("selected");
             var thatIndex = $(this).index();
